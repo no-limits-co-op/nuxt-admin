@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { packageInfos } = usePackageInfos()
+
 const { isFullscreen, toggle } = useFullscreen()
 const { asideCollapsed, toggleAsideCollapsed } = useAsideCollapsed()
 const router = useRouter()
@@ -38,7 +40,7 @@ function onCommand(command: string) {
     <div class="nuxt-admin-header__operation">
       <ClientOnly>
         <el-tooltip content="github">
-          <NuxtLink class="operation-item" to="/">
+          <NuxtLink class="operation-item" :external="true" target="_blank" :to="packageInfos.repository.url">
             <Icon name="uil:github" size="20" />
           </NuxtLink>
         </el-tooltip>

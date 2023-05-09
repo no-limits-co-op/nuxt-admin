@@ -26,7 +26,12 @@ const { menuList } = useAppConfig()
               <span>{{ item.name }}</span>
             </template>
             <ElMenuItem v-for="_item in item.children" :key="_item.name" :index="_item.path">
-              {{ _item.name }}
+              <template #title>
+                <template v-if="_item.icon">
+                  <Icon mr-2 size="20" :name="_item.icon" />
+                </template>
+                {{ _item.name }}
+              </template>
             </ElMenuItem>
           </ElSubMenu>
           <ElMenuItem v-else :index="item.path">

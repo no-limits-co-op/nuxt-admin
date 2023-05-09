@@ -6,6 +6,33 @@
     "name": "huisnotacouncillor",
     "email": "hu_zhuangzhuang@163.com"
   },
+  "repository": {
+    "url": "https://github.com/no-limits-co-op/nuxt-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/no-limits-co-op/nuxt-admin/issues"
+  },
+  "keywords": [
+    "Vue",
+    "Vue3",
+    "Nuxt",
+    "Nuxt 3",
+    "admin",
+    "admin-template",
+    "nuxt-admin",
+    "nuxt-admin-template",
+    "Vite3",
+    "Vite",
+    "vite-admin",
+    "TypeScript",
+    "TS",
+    "Element Plus",
+    "element-plus",
+    "nxut-admin",
+    "Nuxt-Admin",
+    "element-plus-admin",
+    "UnoCSS"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "nuxt build",
@@ -36,6 +63,5 @@
     "sass": "^1.58.1",
     "typescript": "^4.9.5",
     "vue-router": "^4.1.6"
-  },
-  "__npminstall_done": false
+  }
 }
