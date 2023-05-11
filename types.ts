@@ -1,17 +1,17 @@
 export interface User {
-  id: number;
-  username: string;
-  name: string;
-  gender: 'male' | 'female' | 'other';
-  age: number;
-  mobile: string;
-  email?: string;
-  status?: 'active' | 'inactive';
+  id: number
+  username: string
+  name: string
+  gender: 'male' | 'female' | 'other'
+  age: number
+  mobile: string
+  email?: string
+  status?: 'active' | 'inactive'
 }
 
 interface KeyValue {
-  label: string;
-  value: string | number;
+  label: string
+  value: string | number
 }
 
 // 用户状态

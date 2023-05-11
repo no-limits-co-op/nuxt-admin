@@ -60,4 +60,7 @@ export default defineAppConfig({
       path: '/about',
     },
   ],
+
+  websiteName: 'NAE Admin',
+  websiteShortName: 'NAE',
 })

@@ -6,6 +6,7 @@
     "name": "huisnotacouncillor",
     "email": "hu_zhuangzhuang@163.com"
   },
+  "license": "MIT",
   "repository": {
     "url": "https://github.com/no-limits-co-op/nuxt-admin.git"
   },
@@ -33,7 +34,6 @@
     "element-plus-admin",
     "UnoCSS"
   ],
-  "license": "MIT",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

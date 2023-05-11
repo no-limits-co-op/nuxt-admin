@@ -2,7 +2,11 @@
 const { asideCollapsed } = useAsideCollapsed()
 const route = useRoute()
 const activeMenu = ref(route.path)
-const { menuList } = useAppConfig()
+const { menuList, websiteName, websiteShortName } = useAppConfig()
+
+const name = computed(() => {
+  return asideCollapsed.value ? websiteShortName : websiteName
+})
 </script>
 
 <template>
@@ -14,9 +18,8 @@ const { menuList } = useAppConfig()
       :router="true"
       :collapse="asideCollapsed"
     >
-      <!-- TODO: 吸顶 -->
       <a href="/" w-full h-56px flex items-center justify-center>
-        {{ asideCollapsed ? 'NA' : 'Nuxt Admin' }}
+        {{ name }}
       </a>
       <ElScrollbar max-height="calc(100% - 56px)" always>
         <template v-for="item in menuList" :key="item.name">
@@ -49,14 +52,32 @@ const { menuList } = useAppConfig()
 </template>
 
 <style lang="scss" scoped>
-.nuxt-admin-aside {
-  @apply w-60;
+.el-menu {
+  border-right: unset !important;
 
-  &.collapsed {
-    @apply w-16;
-  }
-  .nuxt-admin__menu {
-    border: none;
+  &.el-menu--collapse {
+    :deep(.el-sub-menu__icon-arrow) {
+      display: none;
+    }
+
+    .el-scrollbar {
+      .el-scrollbar__wrap {
+        .el-scrollbar__view {
+          > .el-sub-menu {
+            > .el-sub-menu__title {
+              .icon {
+                margin-right: 0;
+                min-width: 20px;
+              }
+
+              > span {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>

@@ -15,7 +15,7 @@
         </ElScrollbar>
       </ElMain>
       <ElFooter flex items-center justify-center height="40px">
-        Copyright ©{{ new Date().getFullYear() }} Nuxt Admin
+        <TheFooter />
       </ElFooter>
     </ElContainer>
   </ElContainer>
@@ -27,7 +27,8 @@
 
   .nuxt-admin__aside-wrap {
     @apply h-full overflow-hidden;
-    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 0 8px #1d23290d;
+    z-index: 1;
   }
   .nuxt-admin__body {
     .nuxt-admin__header-wrap {
