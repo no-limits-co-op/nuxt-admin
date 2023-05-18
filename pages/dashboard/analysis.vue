@@ -1,33 +1,34 @@
 <script setup lang="ts">
-const { $eCharts } = useNuxtApp()
-const lineChartRef = ref<HTMLElement>()
-const pieChartRef = ref<HTMLElement>()
-const polarChartRef = ref<HTMLElement>()
+import type { ECOption } from '@/types/charts'
 
 const statisticData = [
   {
     title: '访问量',
     amount: 10000,
-    icon: '',
-    bg: 'background-image: linear-gradient(to right bottom, rgb(236, 71, 134), rgb(185, 85, 164))',
+    icon: 'material-symbols:monitor-outline-rounded',
+    startColor: 'rgb(236, 71, 134)',
+    endColor: 'rgb(185, 85, 164)',
   },
   {
     title: '成交额',
     amount: 234567,
-    icon: '',
-    bg: 'background-image: linear-gradient(to right bottom, rgb(134, 94, 192), rgb(81, 68, 180))',
+    icon: 'streamline:money-cash-file-dollar-common-money-currency-cash-file',
+    startColor: 'rgb(134, 94, 192)',
+    endColor: 'rgb(81, 68, 180)',
   },
   {
     title: '下载数',
     amount: 6666,
-    icon: '',
-    bg: 'background-image: linear-gradient(to right bottom, rgb(86, 205, 243), rgb(113, 157, 227))',
+    icon: 'solar:file-download-outline',
+    startColor: 'rgb(86, 205, 243)',
+    endColor: 'rgb(113, 157, 227)',
   },
   {
     title: '成交数',
     amount: 9999,
-    icon: '',
-    bg: 'background-image: linear-gradient(to right bottom, rgb(252, 188, 37), rgb(246, 128, 87))',
+    icon: 'solar:bill-list-broken',
+    startColor: 'rgb(252, 188, 37)',
+    endColor: 'rgb(246, 128, 87)',
   },
 ]
 
@@ -94,7 +95,7 @@ const tableData = [
   },
 ]
 
-const lineOptions = ref({
+const lineOptions = ref<ECOption>({
   tooltip: {
     trigger: 'axis',
     axisPointer: {
@@ -187,9 +188,9 @@ const lineOptions = ref({
       data: [2208, 2016, 2916, 4512, 8281, 2008, 1963, 2367, 2956, 678],
     },
   ],
-})
+}) as Ref<ECOption>
 
-const pieOptions = ref({
+const pieOptions = ref<ECOption>({
   tooltip: {
     trigger: 'item',
   },
@@ -233,15 +234,15 @@ const pieOptions = ref({
       ],
     },
   ],
-})
+}) as Ref<ECOption>
 
-const data = ref([])
+const data = ref<Array<[number, number]>>([])
 for (let i = 0; i <= 360; i++) {
   const t = (i / 180) * Math.PI
   const r = Math.sin(2 * t) * Math.cos(2 * t)
   data.value.push([r, i])
 }
-const polarOptions = ref({
+const polarOptions = ref<ECOption>({
   polar: {
     center: ['50%', '50%'],
   },
@@ -268,28 +269,11 @@ const polarOptions = ref({
     },
   ],
   animationDuration: 2000,
-})
+}) as Ref<ECOption>
 
-function initDownloadChart() {
-  const lineChart = $eCharts.init(lineChartRef.value)
-  lineChart.setOption(lineOptions.value)
-}
-
-function initPieChart() {
-  const pieChart = $eCharts.init(pieChartRef.value)
-  pieChart.setOption(pieOptions.value)
-}
-
-function initPolarChart() {
-  const polarChart = $eCharts.init(polarChartRef.value)
-  polarChart.setOption(polarOptions.value)
-}
-
-onMounted(() => {
-  initDownloadChart()
-  initPieChart()
-  initPolarChart()
-})
+const { domRef: lineChartRef } = useEcharts(lineOptions)
+const { domRef: pieChartRef } = useEcharts(pieOptions)
+const { domRef: polarChartRef } = useEcharts(polarOptions)
 </script>
 
 <template>
@@ -307,15 +291,17 @@ onMounted(() => {
     </div>
     <div flex gap-4 mt-4>
       <template v-for="(item, index) in statisticData" :key="index">
-        <div flex-1 rd-2 p-4 text-white :style="item.bg">
+        <GradientBg flex-1 :start-color="item.startColor" :end-color="item.endColor">
           <div font-600>
             {{ item.title }}
           </div>
           <div flex justify-between items-center mt-2>
-            <div>icon</div>
+            <div>
+              <Icon size="20" :name="item.icon" />
+            </div>
             <div>{{ item.amount }}</div>
           </div>
-        </div>
+        </GradientBg>
       </template>
     </div>
     <div flex gap-4 mt-4>

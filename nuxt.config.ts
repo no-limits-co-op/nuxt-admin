@@ -30,6 +30,7 @@ export default defineNuxtConfig({
 
   build: {
     analyze: true,
+    transpile: ['echarts'], // 用 Babel 转译特定的依赖
   },
 
   // css

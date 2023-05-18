@@ -79,18 +79,17 @@ const name = computed(() => {
                 }
               }
             }
-
-            > .el-menu-item {
-              > .el-menu-tooltip__trigger {
-                .icon {
-                  margin-right: 0;
-                  font-size: 18px;
-                  width: var(--el-menu-icon-width);
-                }
-              }
-            }
           }
         }
+      }
+    }
+
+    :deep(.el-menu-item) {
+      .icon {
+        width: var(--el-menu-icon-width);
+        text-align: center;
+        font-size: 18px;
+        vertical-align: middle;
       }
     }
   }

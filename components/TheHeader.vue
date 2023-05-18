@@ -1,9 +1,11 @@
 <script setup lang="ts">
 const { packageInfos } = usePackageInfos()
-
 const { isFullscreen, toggle } = useFullscreen()
 const { asideCollapsed, toggleAsideCollapsed } = useAsideCollapsed()
 const router = useRouter()
+
+const tooltipHideAfter = ref(0)
+
 function onCommand(command: string) {
   if (command === 'userCenter') {
     router.replace('/login')
@@ -39,30 +41,41 @@ function onCommand(command: string) {
     </div>
     <div class="nuxt-admin-header__operation">
       <ClientOnly>
-        <el-tooltip content="github">
+        <ElTooltip content="github" :hide-after="tooltipHideAfter">
           <NuxtLink class="operation-item" :external="true" target="_blank" :to="packageInfos.repository.url">
             <Icon name="uil:github" size="20" />
           </NuxtLink>
-        </el-tooltip>
-        <el-tooltip content="fullscreen">
+        </ElTooltip>
+        <ElTooltip content="fullscreen" :hide-after="tooltipHideAfter">
           <div class="operation-item" @click="toggle">
             <Icon v-if="isFullscreen" name="solar:quit-full-screen-outline" size="20" />
             <Icon v-else name="solar:full-screen-bold" size="20" />
           </div>
-        </el-tooltip>
-        <el-tooltip content="主题模式">
+        </ElTooltip>
+        <ElTooltip content="主题模式" :hide-after="tooltipHideAfter">
           <div class="operation-item">
             <Icon name="solar:sun-2-bold" size="20" />
             <!-- <Icon name="solar:moon-bold" size="20" /> -->
           </div>
-        </el-tooltip>
-        <el-tooltip content="消息通知">
+        </ElTooltip>
+
+        <ElTooltip content="消息通知" :hide-after="tooltipHideAfter">
           <div class="operation-item">
-            <el-badge :value="200" :max="99">
-              <Icon name="solar:bell-outline" size="20" />
-            </el-badge>
+            <ElPopover trigger="click" placement="bottom-end" width="360px" :popper-style="{ padding: 0 }">
+              <template #reference>
+                <div w-full h-full flex items-center justify-center>
+                  <el-badge :value="200" :max="99">
+                    <Icon name="solar:bell-outline" size="20" />
+                  </el-badge>
+                </div>
+              </template>
+              <div>
+                <MessageContent />
+                <MessageFooter />
+              </div>
+            </ElPopover>
           </div>
-        </el-tooltip>
+        </ElTooltip>
         <el-dropdown class="operation-item user" @command="onCommand">
           <div class="user-info">
             <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="用户头像" width="32" height="32" rd="1/2" object-cover>

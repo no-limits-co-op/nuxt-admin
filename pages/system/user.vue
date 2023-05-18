@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Box, Delete, Plus, RefreshRight } from '@element-plus/icons-vue'
-import type { User } from '@/types'
-import { UserGender, UserStatus } from '@/types'
+import type { User } from '@/types/user'
+import { UserGender, UserStatus } from '@/types/user'
 
 const config = useRuntimeConfig()
 const visible = ref<boolean>(false)
@@ -78,7 +78,7 @@ onMounted(async () => {
     baseURL: config.public.baseUrl,
     method: 'get',
   })
-  tableData.value = data.value
+  tableData.value = data.value as Array<User>
 })
 </script>
 
