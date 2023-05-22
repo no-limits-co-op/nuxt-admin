@@ -1,10 +1,26 @@
 <script setup lang="ts">
 const { packageInfos } = usePackageInfos()
 const { isFullscreen, toggle } = useFullscreen()
-const { asideCollapsed, toggleAsideCollapsed } = useAsideCollapsed()
+const { t, setLocale, locale } = useI18n()
+const { asideCollapsed, toggleAsideCollapsed, toggleLanguage } = useGlobalConfig()
 const router = useRouter()
 
+const colorMode = useColorMode()
+function toggleColorMode() {
+  colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
+}
+
 const tooltipHideAfter = ref(0)
+const fullscreen = computed(() => isFullscreen.value ? t('websiteHeader.exitFullScreen') : t('websiteHeader.fullScreen'))
+
+watch(locale, (val: Ref<string>) => {
+  setLocale(val.value)
+  toggleLanguage()
+})
+
+function setLanguage(command: string) {
+  setLocale(command)
+}
 
 function onCommand(command: string) {
   if (command === 'userCenter') {
@@ -12,13 +28,13 @@ function onCommand(command: string) {
   }
   else if (command === 'logout') {
     ElMessageBox.confirm(
-      '您确认要退出登录吗？',
+      t('logoutConfirm.content'),
       'Warning',
       {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        confirmButtonText: t('common.yes'),
+        cancelButtonText: t('common.no'),
         type: 'warning',
-        title: '提示',
+        title: t('common.tip'),
         autofocus: false,
         draggable: true,
       },
@@ -41,25 +57,41 @@ function onCommand(command: string) {
     </div>
     <div class="nuxt-admin-header__operation">
       <ClientOnly>
-        <ElTooltip content="github" :hide-after="tooltipHideAfter">
+        <ElTooltip :content="$t('websiteHeader.github')" :hide-after="tooltipHideAfter">
           <NuxtLink class="operation-item" :external="true" target="_blank" :to="packageInfos.repository.url">
             <Icon name="uil:github" size="20" />
           </NuxtLink>
         </ElTooltip>
-        <ElTooltip content="fullscreen" :hide-after="tooltipHideAfter">
+        <ElTooltip :hide-after="tooltipHideAfter" :content="fullscreen">
           <div class="operation-item" @click="toggle">
             <Icon v-if="isFullscreen" name="solar:quit-full-screen-outline" size="20" />
             <Icon v-else name="solar:full-screen-bold" size="20" />
           </div>
         </ElTooltip>
-        <ElTooltip content="主题模式" :hide-after="tooltipHideAfter">
-          <div class="operation-item">
+        <ElTooltip :content="$t('websiteHeader.themeMode')" :hide-after="tooltipHideAfter">
+          <div class="operation-item" @click="toggleColorMode">
             <Icon name="solar:sun-2-bold" size="20" />
             <!-- <Icon name="solar:moon-bold" size="20" /> -->
           </div>
         </ElTooltip>
 
-        <ElTooltip content="消息通知" :hide-after="tooltipHideAfter">
+        <el-dropdown class="operation-item" @command="setLanguage">
+          <div class="focus-visited-none" flex items-center justify-center h-full w-full>
+            <IconLocale />
+          </div>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="zh-cn" :class="{ selected: locale === 'zh-cn' }">
+                中文
+              </el-dropdown-item>
+              <el-dropdown-item command="en" :class="{ selected: locale === 'en' }">
+                English
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+
+        <ElTooltip :content="$t('websiteHeader.notification')" :hide-after="tooltipHideAfter">
           <div class="operation-item">
             <ElPopover trigger="click" placement="bottom-end" width="360px" :popper-style="{ padding: 0 }">
               <template #reference>
@@ -77,7 +109,7 @@ function onCommand(command: string) {
           </div>
         </ElTooltip>
         <el-dropdown class="operation-item user" @command="onCommand">
-          <div class="user-info">
+          <div class="user-info focus-visited-none">
             <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="用户头像" width="32" height="32" rd="1/2" object-cover>
             <span class="username">
               NuxtAdmin
@@ -87,11 +119,11 @@ function onCommand(command: string) {
             <el-dropdown-menu>
               <el-dropdown-item command="userCenter">
                 <Icon name="carbon:user-avatar-filled-alt" size="20" mr-1 />
-                用户中心
+                {{ $t('websiteHeader.userCenter') }}
               </el-dropdown-item>
               <el-dropdown-item divided command="logout">
                 <Icon name="mingcute:exit-line" size="20" mr-1 />
-                退出登录
+                {{ $t('websiteHeader.logout') }}
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -102,11 +134,22 @@ function onCommand(command: string) {
 </template>
 
 <style lang="scss" scoped>
+:deep(.el-dropdown-menu__item) {
+  &.selected {
+    color: var(--el-dropdown-menuItem-hover-color);
+  }
+}
 .nuxt-admin-header {
   @apply w-full h-full flex items-center justify-between;
 
   &__operation {
     @apply h-full flex items-center;
+
+    :deep(.focus-visited-none) {
+      &:focus-visible {
+        outline: none;
+      }
+    }
 
     .operation-item {
       @apply w-10 h-full flex items-center justify-center cursor-pointer;
@@ -114,10 +157,6 @@ function onCommand(command: string) {
 
       &.user {
         @apply w-auto;
-
-        &:focus-visible {
-          outline: none;
-        }
 
         .user-info {
           @apply h-full flex items-center px-4;

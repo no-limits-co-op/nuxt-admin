@@ -1,8 +1,16 @@
+<script setup lang="ts">
+const globalConfig = useGlobalConfig()
+
+const { locale, buttonConfig, messageConfig } = globalConfig
+</script>
+
 <template>
-  <NuxtLayout>
-    <NuxtLoadingIndicator />
-    <NuxtPage />
-  </NuxtLayout>
+  <ElConfigProvider :locale="locale" :button="buttonConfig" :message="messageConfig">
+    <NuxtLayout>
+      <NuxtLoadingIndicator />
+      <NuxtPage />
+    </NuxtLayout>
+  </ElConfigProvider>
 </template>
 
 <style>

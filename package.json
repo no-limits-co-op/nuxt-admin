@@ -50,6 +50,7 @@
     "@element-plus/nuxt": "^1.0.3",
     "@nuxtjs/color-mode": "^3.2.0",
     "@nuxtjs/eslint-module": "^4.0.2",
+    "@nuxtjs/i18n": "8.0.0-beta.10",
     "@pinia/nuxt": "^0.4.6",
     "@unocss/nuxt": "^0.50.6",
     "@vueuse/nuxt": "^9.12.0",

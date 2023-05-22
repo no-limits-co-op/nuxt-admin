@@ -1,5 +1,5 @@
 <script setup>
-const { asideCollapsed } = useAsideCollapsed()
+const { asideCollapsed } = useGlobalConfig()
 const route = useRoute()
 const activeMenu = ref(route.path)
 const { menuList, websiteName, websiteShortName } = useAppConfig()
@@ -26,14 +26,14 @@ const name = computed(() => {
             <ElSubMenu v-if="item.children" :index="item.path" :title="item.name">
               <template #title>
                 <Icon class="el-icon" mr-2 size="20" :name="item.icon" />
-                <span>{{ item.name }}</span>
+                <span>{{ $t(item.name) }}</span>
               </template>
               <ElMenuItem v-for="_item in item.children" :key="_item.name" :index="_item.path">
                 <template v-if="_item.icon">
                   <Icon class="el-icon" mr-2 size="20" :name="_item.icon" />
                 </template>
                 <template #title>
-                  {{ _item.name }}
+                  {{ $t(_item.name) }}
                 </template>
               </ElMenuItem>
             </ElSubMenu>
@@ -42,7 +42,7 @@ const name = computed(() => {
                 <Icon class="el-icon" mr-2 size="20" :name="item.icon" />
               </template>
               <template #title>
-                {{ item.name }}
+                {{ $t(item.name) }}
               </template>
             </ElMenuItem>
           </template>

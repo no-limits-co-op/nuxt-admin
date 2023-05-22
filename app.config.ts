@@ -2,60 +2,60 @@ export default defineAppConfig({
   title: 'Nuxt3 Admin',
   menuList: [
     {
-      name: '仪表盘',
+      name: 'menu.dashboard',
       icon: 'uil:calculator-alt',
       path: '/dashboard',
       children: [
         {
-          name: '分析页',
+          name: 'menu.analysis',
           path: '/dashboard/analysis',
         },
         {
-          name: '工作台',
+          name: 'menu.workbench',
           path: '/dashboard/workbench',
         },
       ],
     },
     {
-      name: '异常页',
+      name: 'menu.exception',
       icon: 'ic:baseline-nearby-error',
       path: '/error',
       children: [
         {
-          name: '异常页403',
+          name: 'menu.exception403',
           path: '/error/403',
         },
         {
-          name: '异常页404',
+          name: 'menu.exception404',
           path: '/error/404',
         },
         {
-          name: '异常页500',
+          name: 'menu.exception500',
           path: '/error/500',
         },
       ],
     },
     {
-      name: '系统管理',
+      name: 'menu.system',
       icon: 'ic:outline-settings',
       path: '/system',
       children: [
         {
-          name: '用户管理',
+          name: 'menu.user',
           path: '/system/user',
         },
         {
-          name: '角色管理',
+          name: 'menu.role',
           path: '/system/role',
         },
         {
-          name: '权限管理',
+          name: 'menu.permission',
           path: '/system/permission',
         },
       ],
     },
     {
-      name: '关于',
+      name: 'menu.about',
       icon: 'ic:twotone-sports-gymnastics',
       path: '/about',
     },

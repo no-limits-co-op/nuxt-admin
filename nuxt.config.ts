@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
     '@nuxtjs/color-mode',
     '@nuxtjs/eslint-module',
+    '@nuxtjs/i18n',
     '@pinia/nuxt',
     '@unocss/nuxt',
     '@vueuse/nuxt',
@@ -42,6 +43,9 @@ export default defineNuxtConfig({
   // colorMode
   colorMode: {
     classSuffix: '',
+    fallback: 'light',
+    preference: 'light',
+    storageKey: 'color-mode',
   },
 
   devServer: {
@@ -56,6 +60,27 @@ export default defineNuxtConfig({
 
   imports: {
     dirs: ['./stores'],
+  },
+
+  i18n: {
+    detectBrowserLanguage: {
+      useCookie: true,
+      fallbackLocale: 'zh-cn',
+    },
+    strategy: 'no_prefix',
+    locales: [
+      {
+        code: 'en',
+        file: 'en.json',
+      },
+      {
+        code: 'zh-cn',
+        file: 'zh-cn.json',
+      },
+    ],
+    lazy: true,
+    langDir: 'internationalization',
+    defaultLocale: 'zh-cn',
   },
 
   autoImports: ['defineStore', 'acceptHMRUpdate'],
