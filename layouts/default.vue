@@ -8,11 +8,16 @@
         <TheHeader />
       </ElHeader>
       <ElMain class="nuxt-admin__content-wrap">
-        <ElScrollbar max-height="100%" always>
+        <ElScrollbar id="scroll-area" max-height="100%" always>
           <div min-h-520px rd-2 p-4 h="calc(100% - 2rem)">
             <slot />
           </div>
         </ElScrollbar>
+        <el-backtop target="#scroll-area .el-scrollbar__wrap" :bottom="60" :right="20">
+          <div id="backtop-icon-wrap">
+            <Icon size="24" name="mdi:arrow-collapse-up" />
+          </div>
+        </el-backtop>
       </ElMain>
       <ElFooter flex items-center justify-center height="40px">
         <TheFooter />
@@ -40,6 +45,13 @@
     .nuxt-admin__content-wrap {
       background-color: #f7f9f8;
       padding: 0;
+
+      :deep(#backtop-icon-wrap) {
+        @apply h-full w-full text-center lh-40px rd-1/2;
+        background-color: var(--el-bg-color-overlay);
+        box-shadow: var(--el-box-shadow-lighter);
+        color: var(--el-color-primary);
+      }
     }
   }
 }
