@@ -6,7 +6,7 @@ const devDependenciesNames = Object.keys(packageInfos.devDependencies)
 <template>
   <div>
     <section bg-white rd-2 p-4>
-      <header text-4 font-600 py-4>
+      <header text-4 font-600 py-2>
         关于
       </header>
       <main text-14px lh-normal>
@@ -50,7 +50,7 @@ const devDependenciesNames = Object.keys(packageInfos.devDependencies)
       </main>
     </div>
     <div bg-white rd-2 mt-4 p-4>
-      <header text-4 font-600 py-4>
+      <header text-4 font-600 py-2>
         项目依赖
       </header>
       <main>

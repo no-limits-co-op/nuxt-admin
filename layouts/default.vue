@@ -1,11 +1,11 @@
 <template>
   <ElContainer class="nuxt-admin-container">
     <ElAside class="nuxt-admin__aside-wrap" width="fitcontent">
-      <TheAside />
+      <LayoutTheAside />
     </ElAside>
     <ElContainer class="nuxt-admin__body">
       <ElHeader class="nuxt-admin__header-wrap" height="56px">
-        <TheHeader />
+        <LayoutTheHeader />
       </ElHeader>
       <ElMain class="nuxt-admin__content-wrap">
         <ElScrollbar id="scroll-area" max-height="100%" always>
@@ -20,7 +20,7 @@
         </el-backtop>
       </ElMain>
       <ElFooter flex items-center justify-center height="40px">
-        <TheFooter />
+        <LayoutTheFooter />
       </ElFooter>
     </ElContainer>
   </ElContainer>
