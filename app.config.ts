@@ -1,73 +1,114 @@
+import type { MenuOption } from '@/types/menu'
+
 export default defineAppConfig({
   title: 'Nuxt3 Admin',
   menuList: [
     {
-      name: 'menu.dashboard',
-      icon: 'uil:calculator-alt',
+      name: 'dashboard',
       path: '/dashboard',
+      redirect: 'dashboard-analysis',
+      meta: {
+        title: 'menu.dashboard',
+        icon: 'uil:calculator-alt',
+      },
       children: [
         {
-          icon: 'vaadin:pie-bar-chart',
-          name: 'menu.analysis',
+          name: 'dashboard-analysis',
           path: '/dashboard/analysis',
+          meta: {
+            icon: 'vaadin:pie-bar-chart',
+            title: 'menu.analysis',
+          },
         },
         {
-          icon: 'vaadin:desktop',
-          name: 'menu.workbench',
+          name: 'dashboard-workbench',
           path: '/dashboard/workbench',
+          meta: {
+            icon: 'vaadin:desktop',
+            title: 'menu.workbench',
+          },
         },
       ],
     },
     {
-      name: 'menu.exception',
-      icon: 'bi:exclamation-diamond-fill',
+      name: 'exception',
       path: '/error',
+      redirect: 'exception-403',
+      meta: {
+        icon: 'bi:exclamation-diamond-fill',
+        title: 'menu.exception',
+      },
       children: [
         {
-          icon: 'bi:database-lock',
-          name: 'menu.exception403',
+          name: 'exception-403',
           path: '/error/403',
+          meta: {
+            icon: 'bi:database-lock',
+            title: 'menu.exception403',
+          },
         },
         {
-          icon: 'bi:database-slash',
-          name: 'menu.exception404',
+          name: 'exception-404',
           path: '/error/404',
+          meta: {
+            icon: 'bi:database-slash',
+            title: 'menu.exception404',
+          },
         },
         {
-          icon: 'bi:exclamation-diamond',
-          name: 'menu.exception500',
+          name: 'exception-500',
           path: '/error/500',
+          meta: {
+            icon: 'bi:exclamation-diamond',
+            title: 'menu.exception500',
+          },
         },
       ],
     },
     {
-      name: 'menu.system',
-      icon: 'ic:outline-settings',
+      name: 'system',
       path: '/system',
+      redirect: 'system-suer',
+      meta: {
+        icon: 'ic:outline-settings',
+        title: 'menu.system',
+      },
       children: [
         {
-          icon: 'bi:person',
-          name: 'menu.user',
+          name: 'system-user',
           path: '/system/user',
+          meta: {
+            icon: 'bi:person',
+            title: 'menu.user',
+          },
         },
         {
-          icon: 'bi:person-rolodex',
-          name: 'menu.role',
+          name: 'system-role',
           path: '/system/role',
+          meta: {
+            icon: 'bi:person-rolodex',
+            title: 'menu.role',
+          },
         },
         {
-          icon: 'bi:person-plus',
-          name: 'menu.permission',
+          name: 'system-permission',
           path: '/system/permission',
+          meta: {
+            icon: 'bi:person-plus',
+            title: 'menu.permission',
+          },
         },
       ],
     },
     {
-      name: 'menu.about',
-      icon: 'ic:twotone-sports-gymnastics',
+      name: 'about',
       path: '/about',
+      meta: {
+        icon: 'ic:twotone-sports-gymnastics',
+        title: 'menu.about',
+      },
     },
-  ],
+  ] as MenuOption[],
 
   websiteName: 'NAE Admin',
   websiteShortName: 'NAE',

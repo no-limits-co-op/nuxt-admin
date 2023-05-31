@@ -23,26 +23,26 @@ const name = computed(() => {
       >
         <ElScrollbar max-height="100%" always>
           <template v-for="item in menuList" :key="item.name">
-            <ElSubMenu v-if="item.children" :index="item.path" :title="item.name">
+            <ElSubMenu v-if="item.children" :index="item.path" :title="$t(item.meta.title)">
               <template #title>
-                <Icon class="el-icon" mr-2 size="20" :name="item.icon" />
-                <span>{{ $t(item.name) }}</span>
+                <Icon class="el-icon" mr-2 size="20" :name="item.meta.icon" />
+                <span>{{ $t(item.meta.title) }}</span>
               </template>
               <ElMenuItem v-for="_item in item.children" :key="_item.name" :index="_item.path">
-                <template v-if="_item.icon">
-                  <Icon class="el-icon" mr-2 size="20" :name="_item.icon" />
+                <template v-if="_item.meta.icon">
+                  <Icon class="el-icon" mr-2 size="20" :name="_item.meta.icon" />
                 </template>
                 <template #title>
-                  {{ $t(_item.name) }}
+                  {{ $t(_item.meta.title) }}
                 </template>
               </ElMenuItem>
             </ElSubMenu>
             <ElMenuItem v-else :index="item.path">
-              <template v-if="item.icon">
-                <Icon class="el-icon" mr-2 size="20" :name="item.icon" />
+              <template v-if="item.meta.icon">
+                <Icon class="el-icon" mr-2 size="20" :name="item.meta.icon" />
               </template>
               <template #title>
-                {{ $t(item.name) }}
+                {{ $t(item.meta.title) }}
               </template>
             </ElMenuItem>
           </template>

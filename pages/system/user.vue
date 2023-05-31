@@ -3,7 +3,14 @@ import { Box, Delete, Plus, RefreshRight } from '@element-plus/icons-vue'
 import type { User } from '@/types/user'
 import { UserGender, UserStatus } from '@/types/user'
 
-const config = useRuntimeConfig()
+const { t } = useI18n()
+useHead({
+  title: t('menu.user'),
+})
+definePageMeta({
+  title: 'menu.user',
+})
+
 const visible = ref<boolean>(false)
 const formData = reactive<User>({
   id: 0,
@@ -73,12 +80,11 @@ function toggle(val: boolean) {
   visible.value = val
 }
 
+const { data, refresh } = await useAsyncData('list', () => $fetch('/api/user'))
+tableData.value = data.value as Array<User>
+
 onMounted(async () => {
-  const { data } = await useFetch<Array<User>>('/tags', {
-    baseURL: config.public.baseUrl,
-    method: 'get',
-  })
-  tableData.value = data.value as Array<User>
+  refresh()
 })
 </script>
 
@@ -117,17 +123,35 @@ onMounted(async () => {
         >
           <el-table-column type="selection" width="55" />
           <el-table-column type="index" label="序号" width="55" />
-          <el-table-column label="Date" width="120">
+          <el-table-column label="昵称" property="username" width="120" />
+          <el-table-column property="name" label="名字" width="120" />
+          <el-table-column property="gender" label="性别" width="120">
             <template #default="scope">
-              {{ scope.row.date }}
+              {{ UserGender.find(item => item.value === scope.row.gender)?.label }}
             </template>
           </el-table-column>
-          <el-table-column property="name" label="Name" width="120" />
-          <el-table-column property="address" label="Address" show-overflow-tooltip />
+          <el-table-column property="age" label="年龄" width="120" />
+          <el-table-column property="mobile" label="手机号" show-overflow-tooltip />
+          <el-table-column property="email" label="邮箱" show-overflow-tooltip />
+          <el-table-column property="status" label="状态" show-overflow-tooltip>
+            <template #default="scope">
+              <ElTag :type="scope.row.status === 'active' ? 'success' : 'danger'">
+                {{ UserStatus.find(item => item.value === scope.row.status)?.label }}
+              </ElTag>
+            </template>
+          </el-table-column>
           <template #empty>
             <el-empty description="暂无数据" />
           </template>
         </ElTable>
+        <div flex justify-end mt-4>
+          <el-pagination
+            small
+            background
+            layout="prev, pager, next"
+            :total="1000"
+          />
+        </div>
       </ClientOnly>
     </div>
     <ClientOnly>

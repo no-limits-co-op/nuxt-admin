@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import type { ECOption } from '@/types/charts'
 
+const { t } = useI18n()
+useHead({
+  title: t('menu.analysis'),
+})
+definePageMeta({
+  title: 'menu.analysis',
+  icon: 'vaadin:pie-bar-chart',
+})
+
 const statisticData = [
   {
     title: '访问量',

@@ -1,7 +1,9 @@
-export default defineNuxtRouteMiddleware((to, from) => {
-  console.warn(to, from)
-  // if (to.params.id === '1') {
-  //   return abortNavigation()
-  // }
-  // return navigateTo('/')
+export default defineNuxtRouteMiddleware((to) => {
+  // const { locale } = useI18n()
+
+  if (to.params.id === '1')
+    return abortNavigation()
+
+  if (to.path !== '/')
+    return navigateTo('/')
 })

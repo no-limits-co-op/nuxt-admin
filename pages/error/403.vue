@@ -1,4 +1,12 @@
 <script setup lang="ts">
+const { t } = useI18n()
+useHead({
+  title: t('menu.exception403'),
+})
+definePageMeta({
+  title: 'menu.exception403',
+})
+
 const router = useRouter()
 function goHome() {
   router.push('/')

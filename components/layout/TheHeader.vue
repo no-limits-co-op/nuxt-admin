@@ -55,7 +55,7 @@ function onCommand(command: string) {
         <Icon v-if="asideCollapsed" name="mdi:arrow-collapse-right" size="24" />
         <Icon v-else name="mdi:arrow-collapse-left" size="24" />
       </div>
-      面包屑导航
+      <LayoutHeaderBreadCrumb />
     </div>
     <div class="nuxt-admin-header__operation">
       <ClientOnly>

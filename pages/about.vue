@@ -1,4 +1,11 @@
 <script setup lang="ts">
+const { t } = useI18n()
+useHead({
+  title: t('menu.about'),
+})
+definePageMeta({
+  title: 'menu.about',
+})
 const { packageInfos } = usePackageInfos()
 const devDependenciesNames = Object.keys(packageInfos.devDependencies)
 </script>

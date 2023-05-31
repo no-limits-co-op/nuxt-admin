@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@vueuse/nuxt',
     'nuxt-icon',
+    'nuxt-lodash',
   ],
 
   app: {
@@ -27,6 +28,7 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       htmlAttrs: { lang: 'en' },
     },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
 
   build: {
@@ -94,6 +96,18 @@ export default defineNuxtConfig({
   //     scale: 1.2,
   //   },
   // },
+
+  lodash: {
+    prefix: '_',
+    prefixSkip: ['string'],
+    upperAfterPrefix: false,
+    exclude: ['map'],
+    alias: [
+      ['camelCase', 'stringToCamelCase'], // => stringToCamelCase
+      ['kebabCase', 'stringToKebab'], // => stringToKebab
+      ['isDate', 'isLodashDate'], // => _isLodashDate
+    ],
+  },
 
   vite: {
     css: {

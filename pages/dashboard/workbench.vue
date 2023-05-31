@@ -1,4 +1,12 @@
 <script setup lang="ts">
+const { t } = useI18n()
+useHead({
+  title: t('menu.workbench'),
+})
+definePageMeta({
+  title: 'menu.workbench',
+})
+
 const data = reactive({
   projectCount: 12,
   todoCount: 4,
