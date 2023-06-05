@@ -109,7 +109,4 @@ export default defineAppConfig({
       },
     },
   ] as MenuOption[],
-
-  websiteName: 'NAE Admin',
-  websiteShortName: 'NAE',
 })

@@ -12,7 +12,10 @@ import {
 // @unocss-include
 
 export default defineConfig({
+  exclude: ['node_modules', '.git', '.vscode', 'public', './stats.html'],
   shortcuts: [
+    ['wh-full', 'w-full h-full'],
+    ['flex-center', 'flex items-center justify-center'],
     // ['n-link', 'op50 hover:(op100 text-primary) transition'],
     // ['n-link-text', 'n-link underline'],
     // ['n-tab', 'text-xl tracking-wide uppercase p3 border-b-2 border-transparent op20 transition'],
@@ -20,11 +23,11 @@ export default defineConfig({
     ['border-base', 'border-gray-400/20'],
     ['pointer', 'cursor-pointer'],
   ],
-  // theme: {
-  //   colors: {
-  //     primary: '#40c1ad',
-  //   },
-  // },
+  theme: {
+    colors: {
+      primary: 'rgb(var(--el-color-primary))',
+    },
+  },
   presets: [
     presetUno(),
     presetAttributify(),

@@ -17,7 +17,6 @@ export default defineNuxtConfig({
     // head
     head: {
       title: 'Nuxt admin',
-      titleTemplate: (title = '') => title !== 'nuxt admin' ? `${title} · nuxt admin` : title,
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
@@ -129,6 +128,8 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  // ssr: false,
 
   runtimeConfig: {
     public: {

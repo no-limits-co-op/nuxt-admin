@@ -19,7 +19,7 @@ function onLogin() {
 </script>
 
 <template>
-  <div h-full w-full flex items-center justify-center>
+  <div wh-full flex-center>
     <ElCard shadow="always">
       <div w-300px sm:w-360px>
         <header flex justify-between mb-4>

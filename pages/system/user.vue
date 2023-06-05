@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Box, Delete, Plus, RefreshRight } from '@element-plus/icons-vue'
+import { ElLoading } from 'element-plus'
 import type { User } from '@/types/user'
 import { UserGender, UserStatus } from '@/types/user'
 
@@ -12,6 +13,7 @@ definePageMeta({
 })
 
 const visible = ref<boolean>(false)
+const loading = ref<boolean>(false)
 const formData = reactive<User>({
   id: 0,
   username: '',
@@ -38,44 +40,6 @@ function handleSelectionChange(val: Array<User>) {
   multipleSelection.value = val
 }
 
-// const tableData = [
-//   {
-//     date: '2016-05-03',
-//     name: 'Tom',
-//     address: 'No. 189, Grove St, Los Angeles',
-//   },
-//   {
-//     date: '2016-05-02',
-//     name: 'Tom',
-//     address: 'No. 189, Grove St, Los Angeles',
-//   },
-//   {
-//     date: '2016-05-04',
-//     name: 'Tom',
-//     address: 'No. 189, Grove St, Los Angeles',
-//   },
-//   {
-//     date: '2016-05-01',
-//     name: 'Tom',
-//     address: 'No. 189, Grove St, Los Angeles',
-//   },
-//   {
-//     date: '2016-05-08',
-//     name: 'Tom',
-//     address: 'No. 189, Grove St, Los Angeles',
-//   },
-//   {
-//     date: '2016-05-06',
-//     name: 'Tom',
-//     address: 'No. 189, Grove St, Los Angeles',
-//   },
-//   {
-//     date: '2016-05-07',
-//     name: 'Tom',
-//     address: 'No. 189, Grove St, Los Angeles',
-//   },
-// ]
-
 function toggle(val: boolean) {
   visible.value = val
 }
@@ -83,8 +47,21 @@ function toggle(val: boolean) {
 const { data, refresh } = await useAsyncData('list', () => $fetch('/api/user'))
 tableData.value = data.value as Array<User>
 
+async function refreshWithLoading() {
+  loading.value = true
+  const loadingInstance = ElLoading.service({
+    target: '.el-table__body tbody',
+  })
+
+  setTimeout(async () => {
+    await refresh()
+    loading.value = false
+    loadingInstance.close()
+  }, 3000)
+}
+
 onMounted(async () => {
-  refresh()
+  await refreshWithLoading()
 })
 </script>
 
@@ -106,7 +83,7 @@ onMounted(async () => {
         </ElButton>
       </div>
       <div flex items-center>
-        <ElButton type="primary" :icon="RefreshRight">
+        <ElButton type="primary" :icon="RefreshRight" @click="refreshWithLoading">
           刷新
         </ElButton>
       </div>

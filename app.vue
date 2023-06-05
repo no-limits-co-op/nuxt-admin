@@ -1,7 +1,15 @@
 <script setup lang="ts">
-const globalConfig = useGlobalConfig()
+const { locale, buttonConfig, messageConfig, websiteName } = useGlobalConfig()
+useGlobalEvents()
 
-const { locale, buttonConfig, messageConfig } = globalConfig
+// 不切换国际化时
+useHead({
+  titleTemplate: (productCategory) => {
+    return productCategory
+      ? `${productCategory} | ${websiteName}`
+      : `${websiteName}`
+  },
+})
 </script>
 
 <template>
@@ -15,6 +23,6 @@ const { locale, buttonConfig, messageConfig } = globalConfig
 
 <style>
 html, body, #__nuxt {
-  @apply w-full h-full;
+  @apply wh-full;
 }
 </style>

@@ -288,13 +288,13 @@ const { domRef: polarChartRef } = useEcharts(polarOptions)
 <template>
   <div flex flex-col>
     <div flex gap-4>
-      <div bg-white rd-2 p-4 flex items-center justify-center flex-1>
+      <div bg-white rd-2 p-4 flex-center flex-1>
         <div ref="lineChartRef" w-75 h-50 />
       </div>
-      <div bg-white rd-2 p-4 flex items-center justify-center flex-1>
+      <div bg-white rd-2 p-4 flex-center flex-1>
         <div ref="pieChartRef" w-75 h-50 />
       </div>
-      <div bg-white rd-2 p-4 flex items-center justify-center flex-1>
+      <div bg-white rd-2 p-4 flex-center flex-1>
         <div ref="polarChartRef" w-75 h-50 />
       </div>
     </div>

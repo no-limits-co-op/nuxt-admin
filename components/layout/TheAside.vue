@@ -1,8 +1,8 @@
 <script setup>
-const { asideCollapsed } = useGlobalConfig()
+const { asideCollapsed, websiteName, websiteShortName } = useGlobalConfig()
 const route = useRoute()
 const activeMenu = ref(route.path)
-const { menuList, websiteName, websiteShortName } = useAppConfig()
+const { menuList } = useAppConfig()
 
 const name = computed(() => {
   return asideCollapsed.value ? websiteShortName : websiteName
@@ -11,7 +11,7 @@ const name = computed(() => {
 
 <template>
   <div class="aside-menu">
-    <a href="/" w-full h-56px flex items-center justify-center>
+    <a href="/" w-full h-56px flex-center>
       {{ name }}
     </a>
     <ClientOnly>

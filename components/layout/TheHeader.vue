@@ -78,7 +78,7 @@ function onCommand(command: string) {
         </ElTooltip>
 
         <el-dropdown class="operation-item" @command="setLanguage">
-          <div class="focus-visited-none" flex items-center justify-center h-full w-full>
+          <div class="focus-visited-none" wh-full flex-center>
             <IconLocale />
           </div>
           <template #dropdown>
@@ -128,7 +128,7 @@ function onCommand(command: string) {
   }
 }
 .nuxt-admin-header {
-  @apply w-full h-full flex items-center justify-between;
+  @apply wh-full flex items-center justify-between;
 
   &__operation {
     @apply h-full flex items-center pointer;
@@ -140,7 +140,7 @@ function onCommand(command: string) {
     }
 
     .operation-item {
-      @apply w-10 h-full flex items-center justify-center;
+      @apply w-10 h-full flex-center;
       transition: all 0.1s ease-in-out;
 
       &.user {

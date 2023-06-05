@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { websiteName } = useAppConfig()
+const { websiteName } = useGlobalConfig()
 </script>
 
 <template>
@@ -7,7 +7,3 @@ const { websiteName } = useAppConfig()
     Copyright ©{{ new Date().getFullYear() }} {{ websiteName }}
   </div>
 </template>
-
-<style scoped>
-
-</style>

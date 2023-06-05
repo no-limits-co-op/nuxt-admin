@@ -22,6 +22,9 @@ export default function useGlobalConfig() {
     max: 5,
   }))
 
+  const websiteName = 'NAE Admin'
+  const websiteShortName = 'NAE'
+
   return {
     asideCollapsed,
     toggleAsideCollapsed,
@@ -30,5 +33,7 @@ export default function useGlobalConfig() {
     toggleLanguage,
     buttonConfig,
     messageConfig,
+    websiteName,
+    websiteShortName,
   }
 }

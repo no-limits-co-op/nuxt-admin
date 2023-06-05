@@ -19,7 +19,7 @@
           </div>
         </el-backtop>
       </ElMain>
-      <ElFooter flex items-center justify-center height="40px">
+      <ElFooter flex-center height="40px">
         <LayoutTheFooter />
       </ElFooter>
     </ElContainer>
@@ -28,7 +28,7 @@
 
 <style lang="scss" scoped>
 .nuxt-admin-container {
-  @apply h-full w-full;
+  @apply wh-full;
 
   .nuxt-admin__aside-wrap {
     @apply h-full overflow-hidden;
