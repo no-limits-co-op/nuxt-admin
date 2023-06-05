@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "antfu.iconify",
+    "antfu.unocss",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin",
+    "whtouche.vscode-js-console-utils"
+  ]
+}
