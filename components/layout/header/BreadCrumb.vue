@@ -10,9 +10,13 @@ onMounted(() => {
   getBreadcrumb()
 })
 
-watch(route, () => {
-  getBreadcrumb()
-}, { deep: true })
+watch(
+  route,
+  () => {
+    getBreadcrumb()
+  },
+  { deep: true }
+)
 
 function getBreadcrumb() {
   let matched = route.matched.filter((item) => {
@@ -20,38 +24,34 @@ function getBreadcrumb() {
   }) as unknown as MenuOption[]
   const first = matched[0]
   if (!isDashboard(first)) {
-    const dashboard: MenuOption
-      = {
-        path: '/dashboard',
-        name: '/dashboard',
-        meta: {
-          title: 'menu.dashboard',
-          icon: 'home',
-        },
-      }
+    const dashboard: MenuOption = {
+      path: '/dashboard',
+      name: '/dashboard',
+      meta: {
+        title: 'menu.dashboard',
+        icon: 'home',
+      },
+    }
     matched = [dashboard].concat(matched)
   }
 
-  levelList.value = _cloneDeep(matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false))
+  levelList.value = _cloneDeep(matched.filter((item) => item.meta && item.meta.title && item.meta.breadcrumb !== false))
   // console.log('matched: ', matched)
 
   levelList.value.forEach((item) => {
-    if (item.meta)
-      item.meta.title = t(item.meta.title)
+    if (item.meta) item.meta.title = t(item.meta.title)
   })
 }
 
 function isDashboard(route: MenuOption) {
   const name = route && route.name
-  if (!name)
-    return false
+  if (!name) return false
 
   return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
 }
 function handleLink(item: MenuOption) {
   const { redirect } = item
-  if (redirect)
-    router.push(redirect)
+  if (redirect) router.push(redirect)
 
   // router.push(pathCompile(path))
 }
@@ -74,6 +74,4 @@ function handleLink(item: MenuOption) {
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

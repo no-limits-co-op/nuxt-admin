@@ -1,4 +1,5 @@
 {
+  "typescript.tsdk": "node_modules/typescript/lib",
   "prettier.enable": false,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
@@ -8,9 +9,7 @@
   "editor.quickSuggestions": {
     "strings": true
   },
+  "prettier.semi": false,
   "editor.tabSize": 2,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json"],
-  "[vue]": {
-    "editor.defaultFormatter": "Vue.volar"
-  }
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"]
 }

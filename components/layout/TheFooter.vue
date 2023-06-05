@@ -3,7 +3,5 @@ const { websiteName } = useGlobalConfig()
 </script>
 
 <template>
-  <div>
-    Copyright ©{{ new Date().getFullYear() }} {{ websiteName }}
-  </div>
+  <div>Copyright ©{{ new Date().getFullYear() }} {{ websiteName }}</div>
 </template>

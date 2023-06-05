@@ -15,39 +15,49 @@ const data = reactive({
 })
 
 const todoData = computed(() => {
-  return [{
-    title: '项目数',
-    value: data.projectCount,
-  }, {
-    title: '待办',
-    value: `${data.todoCount}/${data.total}`,
-  }, {
-    title: '消息',
-    value: data.unreadMessageCount,
-  }]
+  return [
+    {
+      title: '项目数',
+      value: data.projectCount,
+    },
+    {
+      title: '待办',
+      value: `${data.todoCount}/${data.total}`,
+    },
+    {
+      title: '消息',
+      value: data.unreadMessageCount,
+    },
+  ]
 })
 
-const techList = [{
-  title: 'Nuxt.js',
-  subtitle: 'The Intuitive Web Framework',
-  href: 'https://nuxt.com',
-}, {
-  title: 'TypeScript',
-  subtitle: 'JavaScript类型的超集，它可以编译成纯JavaScript',
-  href: 'https://www.typescriptlang.org',
-}, {
-  title: 'Element Plus',
-  subtitle: '基于 Vue 3，面向设计师和开发者的组件库',
-  href: 'https://element-plus.org',
-}, {
-  title: 'UnoCSS',
-  subtitle: '下一代实用优先的CSS框架',
-  href: 'https://unocss.dev/interactive/?s=',
-}, {
-  title: 'Pinia',
-  subtitle: 'vue状态管理框架，支持vue2、vue3',
-  href: 'https://pinia.esm.dev/',
-}]
+const techList = [
+  {
+    title: 'Nuxt.js',
+    subtitle: 'The Intuitive Web Framework',
+    href: 'https://nuxt.com',
+  },
+  {
+    title: 'TypeScript',
+    subtitle: 'JavaScript类型的超集，它可以编译成纯JavaScript',
+    href: 'https://www.typescriptlang.org',
+  },
+  {
+    title: 'Element Plus',
+    subtitle: '基于 Vue 3，面向设计师和开发者的组件库',
+    href: 'https://element-plus.org',
+  },
+  {
+    title: 'UnoCSS',
+    subtitle: '下一代实用优先的CSS框架',
+    href: 'https://unocss.dev/interactive/?s=',
+  },
+  {
+    title: 'Pinia',
+    subtitle: 'vue状态管理框架，支持vue2、vue3',
+    href: 'https://pinia.esm.dev/',
+  },
+]
 </script>
 
 <template>
@@ -55,15 +65,18 @@ const techList = [{
     <div flex justify-between items-center bg-white p-4 rd-2>
       <div flex>
         <div>
-          <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="用户头像" width="60" height="60" rd="1/2" object-cover>
+          <img
+            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+            alt="用户头像"
+            width="60"
+            height="60"
+            rd="1/2"
+            object-cover
+          />
         </div>
         <div flex="~ col" ml-2>
-          <div text-4 font-bold>
-            早安，Nuxt Admin, 今天又是元气满满的一天！加油💪🏻奥利给！
-          </div>
-          <div mt-2>
-            今日多云转晴，20℃ - 28℃！
-          </div>
+          <div text-4 font-bold>早安，Nuxt Admin, 今天又是元气满满的一天！加油💪🏻奥利给！</div>
+          <div mt-2>今日多云转晴，20℃ - 28℃！</div>
         </div>
       </div>
       <div flex>
@@ -84,9 +97,7 @@ const techList = [{
         <template #header>
           <div flex justify-between items-center>
             <span>项目主要技术栈</span>
-            <ElLink type="primary" :underline="false">
-              更多技术栈
-            </ElLink>
+            <ElLink type="primary" :underline="false"> 更多技术栈 </ElLink>
           </div>
         </template>
         <div flex flex-wrap gap-4>
@@ -110,13 +121,9 @@ const techList = [{
       </ElCard>
     </div>
     <div flex gap-4 mt-4>
-      <div bg-white p-4 rd-2>
-        xxx
-      </div>
+      <div bg-white p-4 rd-2>xxx</div>
     </div>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -38,14 +38,11 @@ export default defineConfig({
     presetWebFonts({
       fonts: {
         'pingfang-sc': 'PingFang SC',
-        'sans': 'DM Sans',
-        'serif': 'DM Serif Display',
-        'mono': 'DM Mono',
+        sans: 'DM Sans',
+        serif: 'DM Serif Display',
+        mono: 'DM Mono',
       },
     }),
   ],
-  transformers: [
-    transformerDirectives(),
-    transformerVariantGroup(),
-  ],
+  transformers: [transformerDirectives(), transformerVariantGroup()],
 })

@@ -27,9 +27,7 @@ function onLogin() {
           <div>Nuxt Admin 管理系统</div>
         </header>
         <main>
-          <h3 mb-4 text-blue font-500>
-            账号密码登录
-          </h3>
+          <h3 mb-4 text-blue font-500>账号密码登录</h3>
           <ElForm v-model="loginForm" size="large">
             <ElFormItem prop="username">
               <ElInput v-model="loginForm.username" placeholder="用户名" />
@@ -39,22 +37,16 @@ function onLogin() {
             </ElFormItem>
             <div flex items-center justify-between mb5>
               <ElFormItem prop="remember" mb-0>
-                <ElCheckbox v-model="loginForm.remember">
-                  记住我
-                </ElCheckbox>
+                <ElCheckbox v-model="loginForm.remember"> 记住我 </ElCheckbox>
               </ElFormItem>
               <div>忘记密码？</div>
             </div>
           </ElForm>
-          <ElButton type="primary" size="large" round w-full @click="onLogin">
-            登录
-          </ElButton>
+          <ElButton type="primary" size="large" round w-full @click="onLogin"> 登录 </ElButton>
         </main>
       </div>
     </ElCard>
   </div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

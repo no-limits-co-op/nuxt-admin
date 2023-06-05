@@ -13,7 +13,9 @@ function toggleColorMode() {
 }
 
 const tooltipHideAfter = ref(0)
-const fullscreen = computed(() => isFullscreen.value ? t('websiteHeader.exitFullScreen') : t('websiteHeader.fullScreen'))
+const fullscreen = computed(() =>
+  isFullscreen.value ? t('websiteHeader.exitFullScreen') : t('websiteHeader.fullScreen')
+)
 
 watch(locale, (val: Ref<string>) => {
   setLocale(val.value)
@@ -27,23 +29,17 @@ function setLanguage(command: string) {
 function onCommand(command: string) {
   if (command === 'userCenter') {
     router.replace('/login')
-  }
-  else if (command === 'logout') {
-    ElMessageBox.confirm(
-      t('logoutConfirm.content'),
-      'Warning',
-      {
-        confirmButtonText: t('common.yes'),
-        cancelButtonText: t('common.no'),
-        type: 'warning',
-        title: t('common.tip'),
-        autofocus: false,
-        draggable: true,
-      },
-    )
-      .then(() => {
-        router.replace('/login')
-      })
+  } else if (command === 'logout') {
+    ElMessageBox.confirm(t('logoutConfirm.content'), 'Warning', {
+      confirmButtonText: t('common.yes'),
+      cancelButtonText: t('common.no'),
+      type: 'warning',
+      title: t('common.tip'),
+      autofocus: false,
+      draggable: true,
+    }).then(() => {
+      router.replace('/login')
+    })
   }
 }
 </script>
@@ -97,11 +93,16 @@ function onCommand(command: string) {
         </ElTooltip>
         <el-dropdown class="operation-item user" @command="onCommand">
           <div class="user-info focus-visited-none">
-            <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="用户头像" width="32" height="32" rd="1/2" object-cover>
+            <img
+              src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+              alt="用户头像"
+              width="32"
+              height="32"
+              rd="1/2"
+              object-cover
+            />
             <!-- <Icon name="fluent-emoji-flat:boy-light" size="32" border-base border-1 rd="1/2" /> -->
-            <span class="username">
-              NuxtAdmin
-            </span>
+            <span class="username"> NuxtAdmin </span>
           </div>
           <template #dropdown>
             <el-dropdown-menu>

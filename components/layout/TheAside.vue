@@ -15,12 +15,7 @@ const name = computed(() => {
       {{ name }}
     </a>
     <ClientOnly>
-      <ElMenu
-        w-60
-        :default-active="activeMenu"
-        :router="true"
-        :collapse="asideCollapsed"
-      >
+      <ElMenu w-60 :default-active="activeMenu" :router="true" :collapse="asideCollapsed">
         <ElScrollbar max-height="100%" always>
           <template v-for="item in menuList" :key="item.name">
             <ElSubMenu v-if="item.children" :index="item.path" :title="$t(item.meta.title)">

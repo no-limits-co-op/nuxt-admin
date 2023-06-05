@@ -39,7 +39,8 @@ echarts.use([
 
 export default function useEcharts(
   options: Ref<ECOption> | ComputedRef<ECOption>,
-  renderFun?: (chartInstance: echarts.ECharts) => void) {
+  renderFun?: (chartInstance: echarts.ECharts) => void
+) {
   const domRef = ref<HTMLElement>()
 
   const initialSize = { width: 0, height: 0 }
@@ -66,8 +67,7 @@ export default function useEcharts(
     if (domRef.value) {
       await nextTick()
       chart = echarts.init(domRef.value, 'light')
-      if (renderFun)
-        renderFun(chart)
+      if (renderFun) renderFun(chart)
 
       update(options.value)
     }
@@ -92,10 +92,8 @@ export default function useEcharts(
         chart = null
       }
       if (canRender()) {
-        if (!isRendered())
-          render()
-        else
-          resize()
+        if (!isRendered()) render()
+        else resize()
       }
     })
 
@@ -104,7 +102,7 @@ export default function useEcharts(
       (newValue) => {
         update(newValue)
       },
-      { deep: true },
+      { deep: true }
     )
   })
 

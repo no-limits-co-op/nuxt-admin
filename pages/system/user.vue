@@ -47,7 +47,7 @@ function toggle(val: boolean) {
 const { data, refresh } = await useAsyncData('list', () => $fetch('/api/user'))
 tableData.value = data.value as Array<User>
 
-async function refreshWithLoading() {
+function refreshWithLoading() {
   loading.value = true
   const loadingInstance = ElLoading.service({
     target: '.el-table__body tbody',
@@ -67,25 +67,15 @@ onMounted(async () => {
 
 <template>
   <div bg-white rd-2 p-4>
-    <div text-4 font-600>
-      用户管理
-    </div>
+    <div text-4 font-600>用户管理</div>
     <div flex items-center justify-between mt-4>
       <div flex items-center>
-        <ElButton type="primary" :icon="Plus" @click="toggle(true)">
-          新增
-        </ElButton>
-        <ElButton type="danger" :icon="Delete">
-          删除
-        </ElButton>
-        <ElButton type="success" :icon="Box">
-          导出
-        </ElButton>
+        <ElButton type="primary" :icon="Plus" @click="toggle(true)"> 新增 </ElButton>
+        <ElButton type="danger" :icon="Delete"> 删除 </ElButton>
+        <ElButton type="success" :icon="Box"> 导出 </ElButton>
       </div>
       <div flex items-center>
-        <ElButton type="primary" :icon="RefreshRight" @click="refreshWithLoading">
-          刷新
-        </ElButton>
+        <ElButton type="primary" :icon="RefreshRight" @click="refreshWithLoading"> 刷新 </ElButton>
       </div>
     </div>
     <div mt-4>
@@ -104,7 +94,7 @@ onMounted(async () => {
           <el-table-column property="name" label="名字" width="120" />
           <el-table-column property="gender" label="性别" width="120">
             <template #default="scope">
-              {{ UserGender.find(item => item.value === scope.row.gender)?.label }}
+              {{ UserGender.find((item) => item.value === scope.row.gender)?.label }}
             </template>
           </el-table-column>
           <el-table-column property="age" label="年龄" width="120" />
@@ -113,7 +103,7 @@ onMounted(async () => {
           <el-table-column property="status" label="状态" show-overflow-tooltip>
             <template #default="scope">
               <ElTag :type="scope.row.status === 'active' ? 'success' : 'danger'">
-                {{ UserStatus.find(item => item.value === scope.row.status)?.label }}
+                {{ UserStatus.find((item) => item.value === scope.row.status)?.label }}
               </ElTag>
             </template>
           </el-table-column>
@@ -122,12 +112,7 @@ onMounted(async () => {
           </template>
         </ElTable>
         <div flex justify-end mt-4>
-          <el-pagination
-            small
-            background
-            layout="prev, pager, next"
-            :total="1000"
-          />
+          <el-pagination small background layout="prev, pager, next" :total="1000" />
         </div>
       </ClientOnly>
     </div>
@@ -143,7 +128,13 @@ onMounted(async () => {
               </ElCol>
               <ElCol :span="12">
                 <ElFormItem label="年龄" prop="age">
-                  <ElInputNumber v-model="formData.age" controls-position="right" style="width:100%" :step="1" :min="1" />
+                  <ElInputNumber
+                    v-model="formData.age"
+                    controls-position="right"
+                    style="width: 100%"
+                    :step="1"
+                    :min="1"
+                  />
                 </ElFormItem>
               </ElCol>
             </ElRow>
@@ -184,18 +175,12 @@ onMounted(async () => {
           </div>
         </ElForm>
         <template #footer>
-          <ElButton @click="toggle(false)">
-            取消
-          </ElButton>
-          <ElButton type="primary">
-            确定
-          </ElButton>
+          <ElButton @click="toggle(false)"> 取消 </ElButton>
+          <ElButton type="primary"> 确定 </ElButton>
         </template>
       </ElDialog>
     </ClientOnly>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

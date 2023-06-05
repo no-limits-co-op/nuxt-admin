@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import MessageItem from './MessageItem.vue'
 import type { Message, MessageTabItem } from '@/types/components/message/message'
+import MessageItem from './MessageItem.vue'
 
 const activeTab = ref('notification')
 
@@ -19,7 +19,7 @@ const TABS: Array<MessageTabItem> = [
   },
 ]
 
-const messageList: Array<Message> = ([
+const messageList: Array<Message> = [
   {
     id: '1',
     icon: 'solar:bell-outline',
@@ -48,7 +48,7 @@ const messageList: Array<Message> = ([
     title: '提问is你好吗?',
     startTime: 'Nov 15, 2016 1:00 pm',
   },
-])
+]
 </script>
 
 <template>
@@ -57,22 +57,16 @@ const messageList: Array<Message> = ([
       <ElTabPane :name="item.name" :label="item.label">
         <ElScrollbar :max-height="360" :height="360" :wrap-style="{ paddingBottom: '8px', paddingTop: '8px' }">
           <template v-for="_item in messageList" :key="_item.id">
-            <MessageItem :item="_item" />
+            <message-item :item="_item" />
           </template>
         </ElScrollbar>
       </ElTabPane>
     </template>
   </ElTabs>
   <div flex items-center border-t-1 border-base pointer>
-    <div flex-1 text-center py-10px border-r-1 border-base>
-      清空
-    </div>
-    <div flex-1 text-center py-10px border-r-1 border-base>
-      全部已读
-    </div>
-    <div flex-1 text-center py-10px>
-      查看更多
-    </div>
+    <div flex-1 text-center py-10px border-r-1 border-base>清空</div>
+    <div flex-1 text-center py-10px border-r-1 border-base>全部已读</div>
+    <div flex-1 text-center py-10px>查看更多</div>
   </div>
 </template>
 

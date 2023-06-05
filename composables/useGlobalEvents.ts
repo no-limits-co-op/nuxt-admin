@@ -9,9 +9,8 @@ export default function useGlobalEvents() {
     watch(
       () => locale.value,
       () => {
-        if (route.meta.title)
-          document.title = `${t(route?.meta?.title as string)} | ${websiteName}`
-      },
+        if (route.meta.title) document.title = `${t(route?.meta?.title as string)} | ${websiteName}`
+      }
     )
   })
 

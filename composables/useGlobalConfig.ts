@@ -9,7 +9,9 @@ export default function useGlobalConfig() {
   }
 
   const language = useState<string>('language', () => 'zh-cn')
-  const locale = computed<Language>(() => language.value === 'en' ? { el: en, name: 'en' } : { el: zhCn, name: 'zh-cn' })
+  const locale = computed<Language>(() =>
+    language.value === 'en' ? { el: en, name: 'en' } : { el: zhCn, name: 'zh-cn' }
+  )
   const toggleLanguage = () => {
     language.value = language.value === 'en' ? 'zh-cn' : 'en'
   }

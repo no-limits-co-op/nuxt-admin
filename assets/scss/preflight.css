@@ -109,8 +109,7 @@ kbd,
 samp,
 pre {
   font-family: theme(
-    /* 'fontFamily.mono', */
-    ui-monospace,
+    /* 'fontFamily.mono', */ ui-monospace,
     SFMono-Regular,
     Menlo,
     Monaco,

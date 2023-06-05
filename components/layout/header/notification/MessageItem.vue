@@ -29,6 +29,4 @@ const item = computed<Message>(() => props.item)
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

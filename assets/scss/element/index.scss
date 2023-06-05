@@ -2,9 +2,10 @@ $-colors: (
   // 'primary': (
   //   'base': rgba(107,33,168, 1),
   // ),
-  'success': (
-    'base': #67c23a,
-  ),
+  'success':
+    (
+      'base': #67c23a,
+    ),
   'warning': (
     'base': #e6a23c,
   ),
@@ -16,14 +17,14 @@ $-colors: (
   ),
   'info': (
     'base': #909399,
-  ),
+  )
 );
 
 $menu: (
   // 'base-level-padding': '4px',
   // 'hover-bg-color': rgba(107,33,168, 0.15),
-  'hover-text-color':#333,
-  'border-color': #fff,
+  'hover-text-color': #333,
+  'border-color': #fff
 );
 
 // @forward 'element-plus/theme-chalk/src/common/var.scss' with (

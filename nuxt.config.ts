@@ -36,10 +36,7 @@ export default defineNuxtConfig({
   },
 
   // css
-  css: [
-    '~/assets/scss/preflight.css',
-    '~/assets/scss/index.scss',
-  ],
+  css: ['~/assets/scss/preflight.css', '~/assets/scss/index.scss'],
 
   // colorMode
   colorMode: {
@@ -121,8 +118,7 @@ export default defineNuxtConfig({
       rollupOptions: {
         output: {
           manualChunks(id) {
-            if (id.includes('element-plus/theme-chalk/'))
-              return 'element-plus'
+            if (id.includes('element-plus/theme-chalk/')) return 'element-plus'
           },
         },
       },

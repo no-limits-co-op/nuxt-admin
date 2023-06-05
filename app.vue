@@ -5,9 +5,7 @@ useGlobalEvents()
 // 不切换国际化时
 useHead({
   titleTemplate: (productCategory) => {
-    return productCategory
-      ? `${productCategory} | ${websiteName}`
-      : `${websiteName}`
+    return productCategory ? `${productCategory} | ${websiteName}` : `${websiteName}`
   },
 })
 </script>
@@ -22,7 +20,9 @@ useHead({
 </template>
 
 <style>
-html, body, #__nuxt {
+html,
+body,
+#__nuxt {
   @apply wh-full;
 }
 </style>
