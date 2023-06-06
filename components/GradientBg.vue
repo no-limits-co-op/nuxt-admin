@@ -15,7 +15,7 @@ const bgStyle = computed(() => ({
 </script>
 
 <template>
-  <div p-4 rd-4 text-white :style="bgStyle">
+  <div rd-4 p-4 text-white :style="bgStyle">
     <slot />
   </div>
 </template>

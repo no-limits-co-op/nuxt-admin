@@ -9,12 +9,12 @@ const item = computed<Message>(() => props.item)
 </script>
 
 <template>
-  <div flex px-4 py-3 hover:bg-gray pointer border-b-1 border-base>
+  <div flex pointer border-b-1 border-base px-4 py-3 hover:bg-gray>
     <div pr-4>
       <Icon :name="item.icon" size="24" />
     </div>
-    <div flex flex-col flex-auto>
-      <div font-bold mb-1 text-4>
+    <div flex-col flex-auto>
+      <div mb-1 text-4 font-bold>
         {{ item.title }}
       </div>
       <div>

@@ -16,6 +16,10 @@ export default defineConfig({
   shortcuts: [
     ['wh-full', 'w-full h-full'],
     ['flex-center', 'flex items-center justify-center'],
+    ['flex-col-center', 'flex-center flex-col'],
+    ['flex-x-center', 'flex justify-center'],
+    ['flex-y-center', 'flex items-center'],
+    ['flex-col', 'flex flex-col'],
     // ['n-link', 'op50 hover:(op100 text-primary) transition'],
     // ['n-link-text', 'n-link underline'],
     // ['n-tab', 'text-xl tracking-wide uppercase p3 border-b-2 border-transparent op20 transition'],

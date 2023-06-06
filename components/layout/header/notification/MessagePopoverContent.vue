@@ -63,10 +63,10 @@ const messageList: Array<Message> = [
       </ElTabPane>
     </template>
   </ElTabs>
-  <div flex items-center border-t-1 border-base pointer>
-    <div flex-1 text-center py-10px border-r-1 border-base>清空</div>
-    <div flex-1 text-center py-10px border-r-1 border-base>全部已读</div>
-    <div flex-1 text-center py-10px>查看更多</div>
+  <div flex-y-center pointer border-t-1 border-base>
+    <div flex-1 border-r-1 border-base py-10px text-center>清空</div>
+    <div flex-1 border-r-1 border-base py-10px text-center>全部已读</div>
+    <div flex-1 py-10px text-center>查看更多</div>
   </div>
 </template>
 

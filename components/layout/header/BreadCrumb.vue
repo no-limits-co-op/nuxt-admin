@@ -59,9 +59,9 @@ function handleLink(item: MenuOption) {
 
 <template>
   <div>
-    <ElBreadcrumb separator="/" flex items-center>
+    <ElBreadcrumb separator="/" flex-y-center>
       <ElBreadcrumbItem v-for="(item, index) in levelList" :key="item.path">
-        <div v-if="item.redirect === 'noRedirect' || index === levelList.length - 1" flex items-center cursor-default>
+        <div v-if="item.redirect === 'noRedirect' || index === levelList.length - 1" flex-y-center cursor-default>
           <!-- <pre>{{ item }}</pre> -->
           <template v-if="item?.meta?.icon">
             <Icon :name="item?.meta.icon" size="16" class="mr-1" />

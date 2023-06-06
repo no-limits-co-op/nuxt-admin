@@ -62,7 +62,7 @@ const techList = [
 
 <template>
   <div class="workbench-container">
-    <div flex justify-between items-center bg-white p-4 rd-2>
+    <div flex-y-center justify-between rd-2 bg-white p-4>
       <div flex>
         <div>
           <img
@@ -81,7 +81,7 @@ const techList = [
       </div>
       <div flex>
         <template v-for="(item, index) in todoData" :key="index">
-          <div flex flex-col items-center px-2>
+          <div flex-y-center px-2>
             <div font-400>
               {{ item.title }}
             </div>
@@ -92,17 +92,17 @@ const techList = [
         </template>
       </div>
     </div>
-    <div flex gap-4 mt-4>
-      <ElCard shadow="never" border-none flex-1 rd-2 :body-style="{ padding: '1rem' }">
+    <div mt-4 flex gap-4>
+      <ElCard shadow="never" flex-1 rd-2 border-none :body-style="{ padding: '1rem' }">
         <template #header>
-          <div flex justify-between items-center>
+          <div flex-y-center justify-between>
             <span>项目主要技术栈</span>
             <ElLink type="primary" :underline="false"> 更多技术栈 </ElLink>
           </div>
         </template>
         <div flex flex-wrap gap-4>
           <template v-for="(item, index) in techList" :key="index">
-            <NuxtLink flex flex-col p-2 border border-green rd-2 :to="item.href" :external="true">
+            <NuxtLink flex-col border border-green rd-2 p-2 :to="item.href" :external="true">
               <div font-600>
                 {{ item.title }}
               </div>
@@ -111,17 +111,17 @@ const techList = [
           </template>
         </div>
       </ElCard>
-      <ElCard shadow="never" border-none flex-1 rd-2>
+      <ElCard shadow="never" flex-1 rd-2 border-none>
         <template #header>
-          <div flex justify-between items-center flex-nowrap>
+          <div flex-y-center flex-nowrap justify-between>
             <span ws-nowrap>快捷操作</span>
           </div>
         </template>
         <div>xxx</div>
       </ElCard>
     </div>
-    <div flex gap-4 mt-4>
-      <div bg-white p-4 rd-2>xxx</div>
+    <div mt-4 flex gap-4>
+      <div rd-2 bg-white p-4>xxx</div>
     </div>
   </div>
 </template>

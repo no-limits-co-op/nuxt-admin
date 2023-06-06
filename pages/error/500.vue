@@ -13,7 +13,7 @@ function goHome() {
 </script>
 
 <template>
-  <div wh-full flex flex-col justify-center items-center>
+  <div wh-full flex-col-center>
     <Icon500 />
 
     <ElButton type="primary" mt-16 @click="goHome"> 回到首页 </ElButton>

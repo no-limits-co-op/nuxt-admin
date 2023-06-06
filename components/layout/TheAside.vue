@@ -11,7 +11,7 @@ const name = computed(() => {
 
 <template>
   <div class="aside-menu">
-    <a href="/" w-full h-56px flex-center>
+    <a href="/" h-56px w-full flex-center>
       {{ name }}
     </a>
     <ClientOnly>

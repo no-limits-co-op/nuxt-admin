@@ -66,9 +66,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div bg-white rd-2 p-4>
+  <div rd-2 bg-white p-4>
     <div text-4 font-600>用户管理</div>
-    <div flex items-center justify-between mt-4>
+    <div mt-4 flex items-center justify-between>
       <div flex items-center>
         <ElButton type="primary" :icon="Plus" @click="toggle(true)"> 新增 </ElButton>
         <ElButton type="danger" :icon="Delete"> 删除 </ElButton>
@@ -111,7 +111,7 @@ onMounted(async () => {
             <el-empty description="暂无数据" />
           </template>
         </ElTable>
-        <div flex justify-end mt-4>
+        <div mt-4 flex justify-end>
           <el-pagination small background layout="prev, pager, next" :total="1000" />
         </div>
       </ClientOnly>

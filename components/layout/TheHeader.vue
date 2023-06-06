@@ -46,8 +46,8 @@ function onCommand(command: string) {
 
 <template>
   <div class="nuxt-admin-header">
-    <div flex items-center h-full>
-      <div w-10 h-full flex items-center justify-center pointer @click="toggleAsideCollapsed">
+    <div h-full flex-y-center>
+      <div h-full w-10 flex-center pointer @click="toggleAsideCollapsed">
         <Icon v-if="asideCollapsed" name="mdi:arrow-collapse-right" size="24" />
         <Icon v-else name="mdi:arrow-collapse-left" size="24" />
       </div>
@@ -92,7 +92,7 @@ function onCommand(command: string) {
           <LayoutHeaderNavMessage class="operation-item" />
         </ElTooltip>
         <el-dropdown class="operation-item user" @command="onCommand">
-          <div class="user-info focus-visited-none">
+          <div class="focus-visited-none user-info">
             <img
               src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
               alt="用户头像"
@@ -129,10 +129,10 @@ function onCommand(command: string) {
   }
 }
 .nuxt-admin-header {
-  @apply wh-full flex items-center justify-between;
+  @apply wh-full flex-y-center justify-between;
 
   &__operation {
-    @apply h-full flex items-center pointer;
+    @apply h-full flex-y-center pointer;
 
     :deep(.focus-visited-none) {
       &:focus-visible {
@@ -148,7 +148,7 @@ function onCommand(command: string) {
         @apply w-auto;
 
         .user-info {
-          @apply h-full flex items-center px-4;
+          @apply h-full flex-y-center px-4;
 
           &:focus-visible {
             outline: none;
