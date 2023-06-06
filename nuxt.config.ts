@@ -132,6 +132,13 @@ export default defineNuxtConfig({
       baseUrl: 'http://localhost:5000', // 后台地址
     },
   },
+
+  router: {
+    // https://router.vuejs.org/api/interfaces/routeroptions.html
+    options: {
+      scrollBehavior: () => ({ x: 0, y: 0 }),
+    },
+  },
   // vueuse
   vueuse: {
     ssrHandlers: true,

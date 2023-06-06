@@ -1,3 +1,19 @@
+<script lang="ts" setup>
+import { ElScrollbar } from 'element-plus'
+
+// 切换路由时，滚动到顶部
+const route = useRoute()
+const scrollArea = ref<InstanceType<typeof ElScrollbar>>()
+watch(
+  () => route,
+  () => {
+    scrollArea.value!.setScrollTop(0)
+  },
+  {
+    deep: true,
+  }
+)
+</script>
 <template>
   <ElContainer class="nuxt-admin-container">
     <ElAside class="nuxt-admin__aside-wrap" width="fitcontent">
@@ -8,11 +24,11 @@
         <LayoutTheHeader />
       </ElHeader>
       <ElMain class="nuxt-admin__content-wrap">
-        <ElScrollbar id="scroll-area" max-height="100%" always>
+        <el-scrollbar id="scroll-area" ref="scrollArea" max-height="100%" always>
           <div min-h-520px rd-2 p-4 h="calc(100% - 2rem)">
             <slot />
           </div>
-        </ElScrollbar>
+        </el-scrollbar>
         <el-backtop target="#scroll-area .el-scrollbar__wrap" :bottom="60" :right="20">
           <div id="backtop-icon-wrap">
             <Icon size="24" name="mdi:arrow-collapse-up" />

@@ -47,17 +47,15 @@ function toggle(val: boolean) {
 const { data, refresh } = await useAsyncData('list', () => $fetch('/api/user'))
 tableData.value = data.value as Array<User>
 
-function refreshWithLoading() {
+async function refreshWithLoading() {
   loading.value = true
   const loadingInstance = ElLoading.service({
     target: '.el-table__body tbody',
   })
 
-  setTimeout(async () => {
-    await refresh()
-    loading.value = false
-    loadingInstance.close()
-  }, 3000)
+  await refresh()
+  loading.value = false
+  loadingInstance.close()
 }
 
 onMounted(async () => {
