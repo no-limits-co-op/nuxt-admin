@@ -61,8 +61,8 @@ const techList = [
 </script>
 
 <template>
-  <div class="workbench-container">
-    <div flex-y-center justify-between rd-2 bg-white p-4>
+  <div>
+    <div bg-fill-3 flex-y-center justify-between rd-2 p-4>
       <div flex>
         <div>
           <img
@@ -121,7 +121,7 @@ const techList = [
       </ElCard>
     </div>
     <div mt-4 flex gap-4>
-      <div rd-2 bg-white p-4>xxx</div>
+      <div bg-fill-3 rd-2 p-4>xxx</div>
     </div>
   </div>
 </template>

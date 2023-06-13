@@ -288,13 +288,13 @@ const { domRef: polarChartRef } = useEcharts(polarOptions)
 <template>
   <div flex-col>
     <div flex gap-4>
-      <div flex-center flex-1 rd-2 bg-white p-4>
+      <div bg-fill-3 flex-center flex-1 rd-2 p-4>
         <div ref="lineChartRef" h-50 w-75 />
       </div>
-      <div flex-center flex-1 rd-2 bg-white p-4>
+      <div bg-fill-3 flex-center flex-1 rd-2 p-4>
         <div ref="pieChartRef" h-50 w-75 />
       </div>
-      <div flex-center flex-1 rd-2 bg-white p-4>
+      <div bg-fill-3 flex-center flex-1 rd-2 p-4>
         <div ref="polarChartRef" h-50 w-75 />
       </div>
     </div>
@@ -314,7 +314,7 @@ const { domRef: polarChartRef } = useEcharts(polarOptions)
       </template>
     </div>
     <div mt-4 flex gap-4>
-      <div w-sm rd-2 bg-white p-4>
+      <div bg-fill-3 w-sm rd-2 p-4>
         <ElTimeline>
           <el-timeline-item
             v-for="(activity, index) in activities"
@@ -329,7 +329,7 @@ const { domRef: polarChartRef } = useEcharts(polarOptions)
           </el-timeline-item>
         </ElTimeline>
       </div>
-      <div flex-auto rd-2 bg-white p-4>
+      <div bg-fill-3 flex-auto rd-2 p-4>
         <ClientOnly>
           <el-table :data="tableData" :header-cell-style="{ background: '#f7f9f8' }" border style="width: 100%">
             <el-table-column prop="date" label="Date" width="180" />

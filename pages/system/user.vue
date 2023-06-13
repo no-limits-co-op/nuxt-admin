@@ -64,7 +64,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div rd-2 bg-white p-4>
+  <div bg-fill-3 rd-2 p-4>
     <div text-4 font-600>用户管理</div>
     <div mt-4 flex items-center justify-between>
       <div flex items-center>
@@ -81,7 +81,6 @@ onMounted(async () => {
         <ElTable
           ref="multipleTableRef"
           style="width: 100%"
-          stripe
           border
           :data="tableData"
           @selection-change="handleSelectionChange"

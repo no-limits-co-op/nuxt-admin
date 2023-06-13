@@ -59,7 +59,7 @@ watch(
     }
 
     .nuxt-admin__content-wrap {
-      background-color: #f7f9f8;
+      background-color: var(--bg-fill-2);
       padding: 0;
 
       :deep(#backtop-icon-wrap) {

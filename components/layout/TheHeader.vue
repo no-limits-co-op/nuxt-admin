@@ -47,7 +47,7 @@ function onCommand(command: string) {
 <template>
   <div class="nuxt-admin-header">
     <div h-full flex-y-center>
-      <div h-full w-10 flex-center pointer @click="toggleAsideCollapsed">
+      <div pointer h-full w-10 flex-center @click="toggleAsideCollapsed">
         <Icon v-if="asideCollapsed" name="mdi:arrow-collapse-right" size="24" />
         <Icon v-else name="mdi:arrow-collapse-left" size="24" />
       </div>
@@ -141,7 +141,7 @@ function onCommand(command: string) {
     }
 
     .operation-item {
-      @apply w-10 h-full flex-center;
+      @apply w-10 h-full flex-center pointer;
       transition: all 0.1s ease-in-out;
 
       &.user {
@@ -161,7 +161,7 @@ function onCommand(command: string) {
       }
 
       &:hover {
-        background-color: #eee;
+        background-color: var(--hover-bg-color);
       }
     }
   }

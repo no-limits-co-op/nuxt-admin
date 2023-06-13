@@ -12,7 +12,11 @@ import {
 // @unocss-include
 
 export default defineConfig({
-  exclude: ['node_modules', '.git', '.vscode', 'public', './stats.html'],
+  content: {
+    pipeline: {
+      exclude: ['node_modules', '.git', '.vscode', 'public', './stats.html'],
+    },
+  },
   shortcuts: [
     ['wh-full', 'w-full h-full'],
     ['flex-center', 'flex items-center justify-center'],
@@ -24,14 +28,9 @@ export default defineConfig({
     // ['n-link-text', 'n-link underline'],
     // ['n-tab', 'text-xl tracking-wide uppercase p3 border-b-2 border-transparent op20 transition'],
     // ['n-tab-active', 'border-current op100'],
-    ['border-base', 'border-gray-400/20'],
     ['pointer', 'cursor-pointer'],
+    ['bg-fill-3', 'bg-$bg-fill-3'],
   ],
-  theme: {
-    colors: {
-      primary: 'rgb(var(--el-color-primary))',
-    },
-  },
   presets: [
     presetUno(),
     presetAttributify(),
