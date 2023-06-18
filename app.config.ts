@@ -108,5 +108,24 @@ export default defineAppConfig({
         title: 'menu.about',
       },
     },
+    {
+      name: 'markdown',
+      path: '/markdown',
+      meta: {
+        icon: 'teenyicons:markdown-outline',
+        title: 'menu.markdown',
+      },
+      redirect: 'markdown-commit',
+      children: [
+        {
+          name: 'markdown-commit',
+          path: '/markdown/commit',
+          meta: {
+            icon: 'bi:database-slash',
+            title: 'menu.commit',
+          },
+        },
+      ],
+    },
   ] as MenuOption[],
 })

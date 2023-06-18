@@ -9,7 +9,7 @@ const item = computed<Message>(() => props.item)
 </script>
 
 <template>
-  <div flex pointer border-b-1 border-base px-4 py-3 hover:bg-gray>
+  <div border-base flex pointer border-b-1 px-4 py-3 hover:bg-gray>
     <div pr-4>
       <Icon :name="item.icon" size="24" />
     </div>

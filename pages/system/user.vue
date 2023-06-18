@@ -64,7 +64,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div bg-fill-3 rd-2 p-4>
+  <div rd-2 bg-fill-3 p-4>
     <div text-4 font-600>用户管理</div>
     <div mt-4 flex items-center justify-between>
       <div flex items-center>

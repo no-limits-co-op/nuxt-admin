@@ -20,6 +20,10 @@ export default {
     permission: 'Permission',
 
     about: 'About',
+    markdown: 'Markdown',
+    todo: 'TODO',
+    commit: 'Commit Rule',
+    nuxt: 'Nuxt',
   },
   logoutConfirm: {
     content: 'Are you sure you want to log out?',

@@ -117,7 +117,7 @@ export default defineNuxtConfig({
     build: {
       rollupOptions: {
         output: {
-          manualChunks(id) {
+          manualChunks(id: string) {
             if (id.includes('element-plus/theme-chalk/')) return 'element-plus'
           },
         },

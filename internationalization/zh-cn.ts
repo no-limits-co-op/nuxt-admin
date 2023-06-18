@@ -20,6 +20,10 @@ export default {
     permission: '权限管理',
 
     about: '关于',
+    markdown: 'Markdown',
+    todo: 'TODO',
+    commit: '提交规则',
+    nuxt: 'Nuxt',
   },
   logoutConfirm: {
     content: '您确认要退出登录吗？',

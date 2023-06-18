@@ -8,23 +8,47 @@ body,
 }
 
 html.dark {
-  color: white;
-  --el-color-primary: #409EFF;
   --hover-bg-color: rgba(51,51,51);
   --bg-fill-1: #0D0E0E;
   --bg-fill-2: #1B1B1C;
   --bg-fill-3: #28292A;
+
+  // text-color
+  --text-color: #fff;
+  --text-color-2: #CECFD1;
+  --text-color-3: #9DA0A3;
+  // disabled and so on
+  --text-color-4: #505254;
+
+  // box-shadow
+  --box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.3);
+  --box-shadow-1: 10px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  --box-shadow-2: -10px 0px 10px 0px rgba(0, 0, 0, 0.3);
+
+  color: var(--text-color);
   background-color: var(--bg-fill-1);
 }
 
 html.light {
-  --el-color-primary: #409EFF;
   --hover-bg-color: #eee;
   --bg-transparent: transparent;
   --bg-fill-1: #FFFFFF;
   --bg-fill-2: #f6f9f8;
   --bg-fill-3: #FFFFFF;
 
+  // text color
+  --text-color: #000;
+  --text-color-2: #303133;
+  --text-color-3: #616266;
+  // disabled and so on
+  --text-color-4: #949599;
+
+  // box-shadow
+  --box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
+  --box-shadow-1: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  --box-shadow-2: -10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+
+  color: var(--text-color);
   background-color: var(--bg-fill-1);
   // box-shadow: ;
 }

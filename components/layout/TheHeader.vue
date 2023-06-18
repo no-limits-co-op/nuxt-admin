@@ -4,13 +4,8 @@ const { isFullscreen, toggle } = useFullscreen()
 const { t, setLocale, locale, locales } = useI18n()
 // TODO：有点恶心人
 const localeList = locales as Ref<Array<{ name: string; code: string }>>
-const { asideCollapsed, toggleAsideCollapsed, toggleLanguage } = useGlobalConfig()
+const { asideCollapsed, toggleAsideCollapsed, toggleLanguage, toggleTheme } = useGlobalConfig()
 const router = useRouter()
-
-const colorMode = useColorMode()
-function toggleColorMode() {
-  colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
-}
 
 const tooltipHideAfter = ref(0)
 const fullscreen = computed(() =>
@@ -47,7 +42,7 @@ function onCommand(command: string) {
 <template>
   <div class="nuxt-admin-header">
     <div h-full flex-y-center>
-      <div pointer h-full w-10 flex-center @click="toggleAsideCollapsed">
+      <div h-full w-10 flex-center pointer @click="toggleAsideCollapsed">
         <Icon v-if="asideCollapsed" name="mdi:arrow-collapse-right" size="24" />
         <Icon v-else name="mdi:arrow-collapse-left" size="24" />
       </div>
@@ -67,7 +62,7 @@ function onCommand(command: string) {
           </div>
         </ElTooltip>
         <ElTooltip :content="$t('websiteHeader.themeMode')" :hide-after="tooltipHideAfter">
-          <div class="operation-item" @click="toggleColorMode">
+          <div class="operation-item" @click="toggleTheme">
             <Icon name="solar:sun-2-bold" size="20" />
             <!-- <Icon name="solar:moon-bold" size="20" /> -->
           </div>

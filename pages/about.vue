@@ -11,7 +11,7 @@ const devDependenciesNames = Object.keys(packageInfos.devDependencies)
 </script>
 
 <template>
-  <div bg-fill-3 rd-2>
+  <div rd-2 bg-fill-3>
     <section rd-2 p-4>
       <header py-2 text-4 font-600>关于</header>
       <main text-14px lh-normal>

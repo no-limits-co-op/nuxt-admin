@@ -53,10 +53,10 @@
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/i18n": "8.0.0-beta.10",
     "@pinia/nuxt": "^0.4.11",
-    "@unocss/eslint-config": "^0.53.0",
-    "@unocss/nuxt": "^0.53.0",
-    "@vueuse/nuxt": "^10.1.2",
-    "dayjs-nuxt": "^1.1.0",
+    "@unocss/eslint-config": "^0.53.1",
+    "@unocss/nuxt": "^0.53.1",
+    "@vueuse/nuxt": "^10.2.0",
+    "dayjs-nuxt": "^1.1.2",
     "echarts": "^5.4.2",
     "element-plus": "^2.3.6",
     "eslint": "^8.42.0",
@@ -65,11 +65,11 @@
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
-    "nuxt": "^3.5.2",
+    "nuxt": "^3.5.3",
     "nuxt-icon": "^0.4.1",
     "nuxt-lodash": "^2.4.1",
     "prettier": "^2.8.8",
-    "sass": "^1.62.1",
+    "sass": "^1.63.4",
     "typescript": "^5.1.3",
     "vue-router": "^4.2.2"
   },
@@ -79,5 +79,8 @@
       "eslint --fix"
     ],
     "*.{css,scss,md,json}": "prettier --write"
+  },
+  "dependencies": {
+    "vditor": "^3.9.3"
   }
 }

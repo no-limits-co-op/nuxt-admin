@@ -45,6 +45,7 @@ export default function useEcharts(
 
   const initialSize = { width: 0, height: 0 }
   const { width, height } = useElementSize(domRef, initialSize)
+  const colorMode = useColorMode()
 
   let chart: echarts.ECharts | null = null
 
@@ -66,7 +67,8 @@ export default function useEcharts(
   async function render() {
     if (domRef.value) {
       await nextTick()
-      chart = echarts.init(domRef.value, 'light')
+      const chartTheme = colorMode.preference === 'light' ? 'light' : 'dark'
+      chart = echarts.init(domRef.value, chartTheme)
       if (renderFun) renderFun(chart)
 
       update(options.value)
@@ -101,6 +103,15 @@ export default function useEcharts(
       options,
       (newValue) => {
         update(newValue)
+      },
+      { deep: true }
+    )
+
+    watch(
+      colorMode,
+      () => {
+        destroy()
+        render()
       },
       { deep: true }
     )

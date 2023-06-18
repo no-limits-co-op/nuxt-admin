@@ -27,6 +27,11 @@ export default function useGlobalConfig() {
   const websiteName = 'NAE Admin'
   const websiteShortName = 'NAE'
 
+  const colorMode = useColorMode()
+  const toggleTheme = () => {
+    colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
+  }
+
   return {
     asideCollapsed,
     toggleAsideCollapsed,
@@ -37,5 +42,6 @@ export default function useGlobalConfig() {
     messageConfig,
     websiteName,
     websiteShortName,
+    toggleTheme,
   }
 }
