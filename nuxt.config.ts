@@ -24,8 +24,18 @@ export default defineNuxtConfig({
           content: 'Nuxt 3 Element Plus',
         },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       htmlAttrs: { lang: 'en' },
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'stylesheet', type: 'text/css', href: 'https://unpkg.com/vditor@3.9.3/dist/index.css' },
+      ],
+      script: [
+        {
+          src: 'https://unpkg.com/vditor@3.9.3/dist/js/lute/lute.min.js',
+          defer: true,
+          id: 'vditorLuteScript',
+        },
+      ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },
