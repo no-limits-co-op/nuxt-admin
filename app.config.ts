@@ -115,14 +115,22 @@ export default defineAppConfig({
         icon: 'teenyicons:markdown-outline',
         title: 'menu.markdown',
       },
-      redirect: 'markdown-commit',
+      redirect: 'markdown-editor',
       children: [
         {
-          name: 'markdown-commit',
-          path: '/markdown/commit',
+          name: 'markdown-editor',
+          path: '/markdown/editor',
           meta: {
             icon: 'bi:database-slash',
-            title: 'menu.commit',
+            title: 'menu.markdownEditor',
+          },
+        },
+        {
+          name: 'markdown-preview',
+          path: '/markdown/preview',
+          meta: {
+            icon: 'bi:database-slash',
+            title: 'menu.markdownPreview',
           },
         },
       ],

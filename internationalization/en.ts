@@ -22,7 +22,8 @@ export default {
     about: 'About',
     markdown: 'Markdown',
     todo: 'TODO',
-    commit: 'Commit Rule',
+    markdownEditor: 'Markdown Editor',
+    markdownPreview: 'Markdown Preview',
     nuxt: 'Nuxt',
   },
   logoutConfirm: {

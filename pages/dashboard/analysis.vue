@@ -278,7 +278,7 @@ const polarOptions = ref<ECOption>({
     },
   ],
   animationDuration: 2000,
-}) as Ref<ECOption>
+}) as unknown as Ref<ECOption>
 
 const { domRef: lineChartRef } = useEcharts(lineOptions)
 const { domRef: pieChartRef } = useEcharts(pieOptions)

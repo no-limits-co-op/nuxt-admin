@@ -27,11 +27,11 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'stylesheet', type: 'text/css', href: 'https://unpkg.com/vditor@3.9.3/dist/index.css' },
+        { rel: 'stylesheet', type: 'text/css', href: 'https://unpkg.com/vditor@3.9.4/dist/index.css' },
       ],
       script: [
         {
-          src: 'https://unpkg.com/vditor@3.9.3/dist/js/lute/lute.min.js',
+          src: 'https://unpkg.com/vditor@3.9.4/dist/js/lute/lute.min.js',
           defer: true,
           id: 'vditorLuteScript',
         },

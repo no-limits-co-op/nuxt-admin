@@ -81,6 +81,6 @@
     "*.{css,scss,md,json}": "prettier --write"
   },
   "dependencies": {
-    "vditor": "^3.9.3"
+    "vditor": "^3.9.4"
   }
 }

@@ -22,7 +22,8 @@ export default {
     about: '关于',
     markdown: 'Markdown',
     todo: 'TODO',
-    commit: '提交规则',
+    markdownEditor: 'Markdown编辑器',
+    markdownPreview: 'Markdown预览',
     nuxt: 'Nuxt',
   },
   logoutConfirm: {

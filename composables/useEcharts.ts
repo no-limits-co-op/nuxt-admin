@@ -108,12 +108,11 @@ export default function useEcharts(
     )
 
     watch(
-      colorMode,
+      () => colorMode.preference,
       () => {
         destroy()
         render()
-      },
-      { deep: true }
+      }
     )
   })
 
