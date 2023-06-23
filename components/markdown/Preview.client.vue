@@ -6,7 +6,7 @@
 import Vditor from 'vditor'
 
 const props = defineProps({
-  text: { type: String, default: 'xxxxx' },
+  text: { type: String, default: '' },
 })
 
 const colorMode = useColorMode()

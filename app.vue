@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { locale, buttonConfig, messageConfig, websiteName } = useGlobalConfig()
+const { elLocale, buttonConfig, messageConfig, websiteName } = useGlobalConfig()
 useGlobalEvents()
 
 // 不切换国际化时
@@ -11,7 +11,7 @@ useHead({
 </script>
 
 <template>
-  <ElConfigProvider :locale="locale" :button="buttonConfig" :message="messageConfig">
+  <ElConfigProvider :locale="elLocale" :button="buttonConfig" :message="messageConfig">
     <NuxtLayout>
       <NuxtLoadingIndicator />
       <NuxtPage />

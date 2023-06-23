@@ -121,7 +121,7 @@ export default defineAppConfig({
           name: 'markdown-editor',
           path: '/markdown/editor',
           meta: {
-            icon: 'bi:database-slash',
+            icon: 'file-icons:rmarkdown',
             title: 'menu.markdownEditor',
           },
         },
@@ -129,7 +129,7 @@ export default defineAppConfig({
           name: 'markdown-preview',
           path: '/markdown/preview',
           meta: {
-            icon: 'bi:database-slash',
+            icon: 'ant-design:file-markdown-outlined',
             title: 'menu.markdownPreview',
           },
         },

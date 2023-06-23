@@ -1,25 +1,16 @@
 <script setup lang="ts">
 const { packageInfos } = usePackageInfos()
 const { isFullscreen, toggle } = useFullscreen()
-const { t, setLocale, locale, locales } = useI18n()
+const { t, locale, locales } = useI18n()
 // TODO：有点恶心人
 const localeList = locales as Ref<Array<{ name: string; code: string }>>
-const { asideCollapsed, toggleAsideCollapsed, toggleLanguage, toggleTheme } = useGlobalConfig()
+const { asideCollapsed, toggleAsideCollapsed, toggleTheme, toggleLanguage } = useGlobalConfig()
 const router = useRouter()
 
 const tooltipHideAfter = ref(0)
 const fullscreen = computed(() =>
   isFullscreen.value ? t('websiteHeader.exitFullScreen') : t('websiteHeader.fullScreen')
 )
-
-watch(locale, (val: Ref<string>) => {
-  setLocale(val.value)
-  toggleLanguage()
-})
-
-function setLanguage(command: string) {
-  setLocale(command)
-}
 
 function onCommand(command: string) {
   if (command === 'userCenter') {
@@ -68,7 +59,7 @@ function onCommand(command: string) {
           </div>
         </ElTooltip>
 
-        <el-dropdown class="operation-item" @command="setLanguage">
+        <el-dropdown class="operation-item" @command="toggleLanguage">
           <div class="focus-visited-none" wh-full flex-center>
             <IconLocale />
           </div>

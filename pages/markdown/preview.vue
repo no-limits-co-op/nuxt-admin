@@ -1,7 +1,7 @@
 <template>
   <div rd-2 bg-fill-3>
     <section p-4>
-      <MarkdownPreview />
+      <MarkdownPreview :text="markdownText" />
     </section>
   </div>
 </template>
@@ -14,6 +14,8 @@ useHead({
 definePageMeta({
   title: 'menu.markdownPreview',
 })
+
+const markdownText = ref('# Markdown syntax Guide')
 </script>
 
 <style scoped></style>
