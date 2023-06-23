@@ -45,6 +45,9 @@
     "analyze": "nuxt analyze",
     "prettier": "prettier --write ."
   },
+  "dependencies": {
+    "vditor": "^3.9.4"
+  },
   "devDependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "@element-plus/nuxt": "^1.0.5",
@@ -70,8 +73,7 @@
     "nuxt-lodash": "^2.4.1",
     "prettier": "^2.8.8",
     "sass": "^1.63.4",
-    "typescript": "^5.1.3",
-    "vue-router": "^4.2.2"
+    "typescript": "^5.1.3"
   },
   "lint-staged": {
     "*.{vue,js,jsx,ts,tsx}": [
@@ -79,8 +81,5 @@
       "eslint --fix"
     ],
     "*.{css,scss,md,json}": "prettier --write"
-  },
-  "dependencies": {
-    "vditor": "^3.9.4"
   }
 }

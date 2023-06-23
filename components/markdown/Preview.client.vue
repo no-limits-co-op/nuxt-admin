@@ -22,7 +22,7 @@ const setCodeTheme = () => {
 }
 
 const setContentTheme = () => {
-  Vditor.setContentTheme(theme.value, 'https://cdn.jsdelivr.net/npm/vditor@3.9.4/dist/css/content-theme')
+  Vditor.setContentTheme(theme.value, 'https://cdn.staticfile.org/vditor/3.9.4/css/content-theme')
 }
 
 const vditorRef = ref<HTMLDivElement | null>(null)

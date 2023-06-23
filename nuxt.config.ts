@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   app: {
     // head
     head: {
-      title: 'Nuxt admin',
+      title: 'NAE Admin',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
@@ -27,11 +27,11 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'stylesheet', type: 'text/css', href: 'https://unpkg.com/vditor@3.9.4/dist/index.css' },
+        { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.staticfile.org/vditor/3.9.4/index.css' },
       ],
       script: [
         {
-          src: 'https://unpkg.com/vditor@3.9.4/dist/js/lute/lute.min.js',
+          src: 'https://cdn.staticfile.org/vditor/3.9.4/js/lute/lute.min.js',
           defer: true,
           id: 'vditorLuteScript',
         },
@@ -44,6 +44,8 @@ export default defineNuxtConfig({
     analyze: true,
     transpile: ['echarts'], // 用 Babel 转译特定的依赖
   },
+
+  optimization: {},
 
   // css
   css: ['~/assets/scss/preflight.css', '~/assets/scss/index.scss'],
@@ -115,6 +117,10 @@ export default defineNuxtConfig({
     ],
   },
 
+  nitro: {
+    compressPublicAssets: true,
+  },
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -132,6 +138,7 @@ export default defineNuxtConfig({
           },
         },
       },
+      cssMinify: true,
     },
   },
 
@@ -143,12 +150,6 @@ export default defineNuxtConfig({
     },
   },
 
-  router: {
-    // https://router.vuejs.org/api/interfaces/routeroptions.html
-    options: {
-      scrollBehavior: () => ({ x: 0, y: 0 }),
-    },
-  },
   // vueuse
   vueuse: {
     ssrHandlers: true,
