@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { ElScrollbar } from 'element-plus'
 
+const { showWaterMark, waterMarkConfig } = useGlobalConfig()
+
 // 切换路由时，滚动到顶部
 const route = useRoute()
 const scrollArea = ref<InstanceType<typeof ElScrollbar>>()
@@ -15,6 +17,7 @@ watch(
 )
 </script>
 <template>
+  <WaterMark v-if="showWaterMark" v-bind="waterMarkConfig" />
   <ElContainer class="nuxt-admin-container">
     <ElAside class="nuxt-admin__aside-wrap" width="fitcontent">
       <LayoutTheAside />

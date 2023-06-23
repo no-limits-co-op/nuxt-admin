@@ -42,5 +42,9 @@ export default function useGlobalConfig() {
     websiteName,
     websiteShortName,
     toggleTheme,
+    showWaterMark: false,
+    waterMarkConfig: {
+      text: 'watermark text',
+    },
   }
 }
